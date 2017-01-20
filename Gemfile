@@ -70,9 +70,6 @@ gem 'mini_magick'
 # Slugs
 gem 'friendly_id'
 
-# Error reporting
-gem 'sentry-raven'
-
 group :production do
   gem 'newrelic_rpm'
   gem 'rack-timeout'
