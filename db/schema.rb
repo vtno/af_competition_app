@@ -10,38 +10,46 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170120130137) do
+ActiveRecord::Schema.define(version: 20170122024556) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "competitions", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "games", force: :cascade do |t|
-    t.string   "type"
-    t.string   "level"
-    t.string   "gender"
-    t.integer  "range"
-    t.string   "competition_type"
-    t.string   "status"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.string   "player_name"
+    t.integer  "score_type"
+    t.integer  "total_score"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "competition_id"
+    t.string   "target_number"
   end
 
-  create_table "players", force: :cascade do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "nickname"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "playings", force: :cascade do |t|
-    t.integer  "player_id"
+  create_table "scores", force: :cascade do |t|
+    t.string   "score_type"
     t.integer  "game_id"
-    t.integer  "round"
-    t.integer  "score"
-    t.string   "type"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "score1"
+    t.integer  "score2"
+    t.integer  "score3"
+    t.integer  "score4"
+    t.integer  "score5"
+    t.integer  "score6"
+    t.integer  "score7"
+    t.integer  "score8"
+    t.integer  "score9"
+    t.integer  "score10"
+    t.integer  "x_count"
+    t.integer  "x_and_10_count"
+    t.integer  "ten_count"
+    t.integer  "nine_count"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
 end

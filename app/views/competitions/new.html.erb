@@ -1,0 +1,47 @@
+<div class="container competition">
+  <div class="row">
+    <h1>AF Competition App</h1>
+    <h3>Please select competition type<h3>
+    <div class="col-md-12">
+      <%= simple_form_for @compet do |f|%>
+        <%= f.input :name, as: :hidden, input_html: { id: 'competition-name'} %>
+      <% end %>
+      <div class="row text-center">
+        <div class="center">
+          <button class="btn btn-default">Game01</button>
+          <button class="btn btn-default">Game02</button>
+          <button class="btn btn-default">Game03</button>
+          <button class="btn btn-default">Game04</button>
+          <button class="btn btn-default">Game05</button>
+        </div>    
+      </div>
+      <div class="row text-center">
+        <div class="center">
+          <button class="btn btn-default">Game06</button>
+          <button class="btn btn-default">Game07</button>
+          <button class="btn btn-default">Game08</button>
+          <button class="btn btn-default">Game09</button>
+          <button class="btn btn-default">Game10</button>
+        </div>
+      </div>
+      <div class="row text-center">
+        <div class="center">
+          <button class="btn btn-default">Game11</button>
+          <button class="btn btn-default">Game12</button>
+          <button class="btn btn-default">Game13</button>
+          <button class="btn btn-default">Game14</button>
+          <button class="btn btn-default">Game15</button>
+        </div>
+      </div>
+      <div class="row text-center">
+        <div class="center">
+          <button class="btn btn-default">Game16</button>
+          <button class="btn btn-default">Game17</button>
+          <button class="btn btn-default">Game18</button>
+          <button class="btn btn-default">Game19</button>
+          <button class="btn btn-default">Game20</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
