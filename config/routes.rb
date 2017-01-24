@@ -8,7 +8,10 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :games
-  resources :competitions
+  resources :competitions do
+    member do
+      resources :games      
+    end
+  end
   root 'competitions#new'
 end

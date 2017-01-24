@@ -1,16 +1,36 @@
 # frozen_string_literal: true
 class GamesController < ApplicationController
   def new
+    @compet = current_competition
   end
 
   def index
-    @games = Game.all
+    @games = current_competition.games
+    @compet = current_competition
   end
 
   def create
-    params[:player].each do |name|
-      current_competition.create_game!(player_name: name)
+    count = 0
+    params[:player].each.with_index do |game, index|
+      count += 1 if (index % 4) == 0
+      letter = case ((index % 4) + 1)
+               when 1
+                 'A'
+               when 2
+                 'B'
+               when 3
+                 'C'
+               else
+                 'D'
+               end
+      target_number = "#{count}#{letter}"
+      Game.create!(
+        competition_id: current_competition.id,
+        player_name: game['name'],
+        target_number: target_number
+      )
     end
+    redirect_to games_path
   end
 
   def update

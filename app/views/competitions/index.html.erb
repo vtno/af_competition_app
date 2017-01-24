@@ -1,0 +1,29 @@
+<div class="container competition">
+  <h1>Competition Log</h1>
+  <% if @competitions.count == 0%>
+    <h2 class="text-center mb-3">No competition yet</h2>
+  <% else %>
+    <table class="table table-striped">
+      <thead class="thead-inverse">
+        <tr>
+          <th>Name</th>
+          <th>Status</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @competitions.each do |competition| %>
+          <tr>
+            <td><%= link_to competition.name, competitions_path(competition) %></td>
+            <td><%= competition.status %></td>
+            <td><%= competition.created_at %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+  
+  <div class="row">
+    <%= link_to 'Back Home', new_competition_path, class: 'btn btn-primary center' %>
+  </div>
+</div>

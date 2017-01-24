@@ -1,8 +1,8 @@
 <div class="container mt-3">
   <h1><%= @compet.name %></h1>
   <h3 class="mb-3">กรอกรายชื่อผู้เข้าแข่งขัน</h3>
-    <%= form_tag '/games' do %>
-      <% 100.times do |index| %>
+    <%= form_tag "/competitions/#{@compet.id}/games" do %>
+      <% 5.times do |index| %>
         <div class="col-md-6">
           <div class="form-group row">        
             <%= label_tag "ชื่อผู้เข้าแข่งขันลำดับที่#{index + 1}"%>
