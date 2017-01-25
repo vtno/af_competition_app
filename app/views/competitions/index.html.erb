@@ -16,7 +16,7 @@
           <tr>
             <td><%= link_to competition.name, competitions_path(competition) %></td>
             <td><%= competition.status %></td>
-            <td><%= competition.created_at %></td>
+            <td><%= competition.created_at.strftime('%d-%m-%Y %H:%M') %></td>
           </tr>
         <% end %>
       </tbody>
