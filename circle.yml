@@ -10,4 +10,3 @@ deployment:
           timeout: 300
       - heroku run rake db:migrate --app af-competition-app:
           timeout: 300
-
