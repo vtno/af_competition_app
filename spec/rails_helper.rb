@@ -7,7 +7,6 @@ require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
 require "shoulda-matchers"
 require "webmock/rspec"
-require "pundit/rspec"
 
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|
