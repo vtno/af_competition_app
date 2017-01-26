@@ -29,11 +29,13 @@ class GamesController < ApplicationController
                  'D'
                end
       target_number = "#{count}#{letter}"
-      Game.create!(
+      game = Game.new(
         competition_id: current_competition.id,
         player_name: game['name'],
         target_number: target_number
       )
+      game.score = Score.new
+      game.save!
     end
     redirect_to games_path
   end

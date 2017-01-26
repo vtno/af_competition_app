@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170124172011) do
+ActiveRecord::Schema.define(version: 20170126181610) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,22 +35,22 @@ ActiveRecord::Schema.define(version: 20170124172011) do
   create_table "scores", force: :cascade do |t|
     t.string   "score_type"
     t.integer  "game_id"
-    t.integer  "score1"
-    t.integer  "score2"
-    t.integer  "score3"
-    t.integer  "score4"
-    t.integer  "score5"
-    t.integer  "score6"
-    t.integer  "score7"
-    t.integer  "score8"
-    t.integer  "score9"
-    t.integer  "score10"
-    t.integer  "x_count"
-    t.integer  "x_and_10_count"
-    t.integer  "ten_count"
-    t.integer  "nine_count"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.integer  "score1",         default: 0
+    t.integer  "score2",         default: 0
+    t.integer  "score3",         default: 0
+    t.integer  "score4",         default: 0
+    t.integer  "score5",         default: 0
+    t.integer  "score6",         default: 0
+    t.integer  "score7",         default: 0
+    t.integer  "score8",         default: 0
+    t.integer  "score9",         default: 0
+    t.integer  "score10",        default: 0
+    t.integer  "x_count",        default: 0
+    t.integer  "x_and_10_count", default: 0
+    t.integer  "ten_count",      default: 0
+    t.integer  "nine_count",     default: 0
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
 end

@@ -12,7 +12,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: af_competition_app_development
+  database: af_competition_app_test
 
 production:
   <<: *default
