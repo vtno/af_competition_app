@@ -115,9 +115,6 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
-    capybara-email (2.5.0)
-      capybara (~> 2.4)
-      mail
     case_transform (0.2)
       activesupport
     childprocess (0.5.9)
@@ -208,7 +205,6 @@ GEM
     minitest (5.10.1)
     mustermann (1.0.0.beta2)
     nenv (0.3.0)
-    newrelic_rpm (3.17.2.327)
     nio4r (2.0.0)
     nokogiri (1.7.0.1)
       mini_portile2 (~> 2.1.0)
@@ -241,7 +237,6 @@ GEM
       rack
     rack-test (0.6.3)
       rack (>= 1.0)
-    rack-timeout (0.4.2)
     rails-dom-testing (2.0.2)
       activesupport (>= 4.2.0, < 6.0)
       nokogiri (~> 1.6)
@@ -370,7 +365,6 @@ DEPENDENCIES
   bundler-audit
   byebug
   capybara
-  capybara-email
   codeclimate-test-reporter
   coffee-script (~> 2.4, >= 2.4.1)
   derailed_benchmarks
@@ -384,7 +378,6 @@ DEPENDENCIES
   jquery-rails
   listen (~> 3.0.5)
   mini_magick
-  newrelic_rpm
   pg
   poltergeist
   pry-byebug
@@ -392,7 +385,6 @@ DEPENDENCIES
   puma (~> 3.0)
   rack
   rack-mini-profiler
-  rack-timeout
   rails!
   rspec-rails
   rubocop

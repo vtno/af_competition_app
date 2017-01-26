@@ -9,6 +9,11 @@ class GamesController < ApplicationController
     @compet = current_competition
   end
 
+  def edit
+    @game = Game.find(params[:id])
+    @scores = @game.scores
+  end
+
   def create
     count = 0
     params[:player].each.with_index do |game, index|

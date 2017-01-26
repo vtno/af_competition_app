@@ -10,8 +10,12 @@ Rails.application.routes.draw do
 
   resources :competitions do
     member do
-      resources :games      
+      resources :games
     end
   end
+  
+  resources :players
+  get '/find' => 'players#find'
+  post '/search_players' => 'players#search_players'
   root 'competitions#new'
 end
