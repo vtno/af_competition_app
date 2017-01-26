@@ -14,6 +14,5 @@
 
 class Game < ApplicationRecord
   belongs_to :competition
-  has_one :player
-  has_many :scores
+  has_one :score
 end

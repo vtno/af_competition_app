@@ -14,3 +14,10 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).on('turbolinks:load', function(){
+  $flash = $('.flash')
+  $flash.on('click', function(){
+   $flash.remove(); 
+  })
+});

@@ -16,3 +16,15 @@
  
 @import "bootstrap";
 @import "register_player";
+
+.flash {
+  width: 100%;
+  text-align: center;
+  padding: 20px;
+}
+.notice {
+  background: lightgreen;
+}
+.error {
+  background: lightsalmon;
+}

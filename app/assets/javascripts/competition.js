@@ -6,4 +6,10 @@ $(document).on('turbolinks:load', function(){
     $('#competition-name').val(value)
     $('form').submit()
   });
+
+  $('.delete').on('click', function(){
+    if(!confirm('คุณแน่ใจที่จะทำการลบการแข่งขันนี้? คุณจะไม่สามารถกู้คืนมาได้อีก')) {
+      return false
+    }
+  });
 });

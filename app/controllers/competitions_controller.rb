@@ -24,6 +24,15 @@ class CompetitionsController < ApplicationController
     @competition = Competition.find params[:id]
   end
 
+  def destroy
+    competition = Competition.find params[:id]
+    if competition.destroy
+      redirect_to :back, notice: 'ลบข้อมูลเรียบร้อย'
+    else
+      redirect_to :back, error: competition.errors.full_messages.to_sentence
+    end
+  end
+
   private def competition_params
     params.require(:competition).permit(:name)
   end
