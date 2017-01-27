@@ -1,0 +1,21 @@
+<tr class="row-<%= count %>">
+  <th>ชุดที่ <%= count %></th>
+  <td class="score" >
+    <span><%= score[0]%></span>
+  </td>
+  <td class="score">
+    <span><%= score[1]%></span>
+  </td>
+  <td class="score">
+     <span><%= score[2]%></span>
+  </td>
+  <td class=" score total-score">
+    <span><%= @score.calc(score)%></span>
+  </td>
+  <td class=" score count-x-10">
+    <span><%= @score.count_x_10(score)%></span>
+  </td>
+  <td class=" score count-x">
+    <span><%= @score.count_x(score)%></span>
+  </td>
+</tr>

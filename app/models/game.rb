@@ -9,7 +9,8 @@
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #  competition_id :integer
-#  target_number  :string
+#  target_number  :integer
+#  target_slot    :string
 #
 
 class Game < ApplicationRecord

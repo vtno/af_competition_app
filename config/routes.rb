@@ -9,11 +9,9 @@ Rails.application.routes.draw do
   end
 
   resources :competitions do
-    member do
-      resources :games
-    end
+    resources :games
   end
-  
+
   resources :players
   get '/find' => 'players#find'
   post '/search_players' => 'players#search_players'

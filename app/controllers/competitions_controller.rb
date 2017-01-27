@@ -21,6 +21,7 @@ class CompetitionsController < ApplicationController
   end
 
   def show
+    assign_current_competition(compet)
     @competition = Competition.find params[:id]
   end
 

@@ -5,20 +5,20 @@
 #  id             :integer          not null, primary key
 #  score_type     :string
 #  game_id        :integer
-#  score1         :integer
-#  score2         :integer
-#  score3         :integer
-#  score4         :integer
-#  score5         :integer
-#  score6         :integer
-#  score7         :integer
-#  score8         :integer
-#  score9         :integer
-#  score10        :integer
-#  x_count        :integer
-#  x_and_10_count :integer
-#  ten_count      :integer
-#  nine_count     :integer
+#  score1         :integer          default(0)
+#  score2         :integer          default(0)
+#  score3         :integer          default(0)
+#  score4         :integer          default(0)
+#  score5         :integer          default(0)
+#  score6         :integer          default(0)
+#  score7         :integer          default(0)
+#  score8         :integer          default(0)
+#  score9         :integer          default(0)
+#  score10        :integer          default(0)
+#  x_count        :integer          default(0)
+#  x_and_10_count :integer          default(0)
+#  ten_count      :integer          default(0)
+#  nine_count     :integer          default(0)
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #

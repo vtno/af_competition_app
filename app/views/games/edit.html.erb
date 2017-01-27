@@ -1,38 +1,32 @@
 <div class="container">
-  <table class="table table-stripe">
-    <thead class="thead-inverse">
+  <div class="col-md-8 offset-md-2">
+    <div class="col-md-12 mt-3">
+      <h3>ชื่อ:&nbsp;<small><%= @game.player_name %></small></h3>
+      <h4>หมายเลขเป้า:&nbsp;
+        <%= "#{@game.target_number}#{@game.target_slot}"%>
+      </h4>
+    </div>
+    <table class="table table-striped">
       <tr>
-        <th>ชื่อ</th>
-        <th>หมายเลขเป้า</th>
-        <th>Score 1</th>
-        <th>Score 2</th>
-        <th>Score 3</th>
-        <th>Score 4</th>
-        <th>Score 5</th>
-        <th>Score 6</th>
-        <th>Score 7</th>
+        <th>หมายเลขชุด</th>
+        <th>รอบที่ 1</th>
+        <th>รอบที่ 2</th>
+        <th>รอบที่ 3</th>
+        <th>คะแนนรวม</th>
         <th>X + 10</th>
-        <th>X</th>
-        <th>10</th>
-        <th>9</th>
+        <th>X</th>        
       </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><%= @game.player_name %></td>
-        <td><%= @game.target_number%></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+      <% (1..10).each do |count| %>
+        <%= render partial: 'score', locals: { count: count, score: @score.send("score#{count}") } %> 
+      <% end %>
+      
+      <% if @game.score_type =='50'%>
+        <%= render partial: 'score', local: { count: 11, score: @score.score11 } %>
+        <%= render partial: 'score', local: { count: 12, score: @score.score12 } %>
+      <% end %>
+    </table>
+    <div class="col-md-4 offset-md-4 text-center">
+      <%= link_to "กลับ", :back, class: 'btn btn-primary'%>
+    </div>
+  </div>
 </div>

@@ -11,7 +11,7 @@ class GamesController < ApplicationController
 
   def edit
     @game = Game.find(params[:id])
-    @scores = @game.scores
+    @score = @game.score
   end
 
   def create
@@ -21,18 +21,20 @@ class GamesController < ApplicationController
       letter = case ((index % 4) + 1)
                when 1
                  'A'
-               when 2
+               when 2 
                  'B'
                when 3
                  'C'
                else
                  'D'
                end
-      target_number = "#{count}#{letter}"
+      target_number = count
+      target_slot = letter
       game = Game.new(
         competition_id: current_competition.id,
         player_name: game['name'],
-        target_number: target_number
+        target_number: target_number,
+        target_slot: target_slot
       )
       game.score = Score.new
       game.save!

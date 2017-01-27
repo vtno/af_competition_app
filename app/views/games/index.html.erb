@@ -1,4 +1,5 @@
-<div class="container-fluid mt-3">
+<div class="container mt-3">
+  <div class="col-md-8 offset-md-2"></div>
   <h3><%= @compet.name %></h3>
   <table class="table table-striped">
     <thead class="thead-inverse">
@@ -6,20 +7,10 @@
         <th>#</th>
         <th>ชื่อ</th>
         <th>หมายเลขเป้า</th>
-        <th>Score 1</th>
-        <th>Score 2</th>
-        <th>Score 3</th>
-        <th>Score 4</th>
-        <th>Score 5</th>
-        <th>Score 6</th>
-        <th>Score 7</th>
-        <th>Score 8</th>
-        <th>Score 9</th>
-        <th>Score 10</th>
-        <th>X + 10</th>
+        <th>คะแนนรวม</th>
+        <th>X + 10</th>        
         <th>X</th>
-        <th>10</th>
-        <th>9</th>
+        <th>แก้ไขคะแนน</th>
       </tr>
     </thead>
     <tbody>
@@ -28,48 +19,17 @@
           <td><%= index + 1 %></td>
           <td><%= game.player_name %></td>
           <td><%= game.target_number %></td>
-          <td data-name="score1" data-score="<%= game.score.score1%>">
-            <%= game.score.score1 %>
           </td>
-          <td data-name="score2" data-score="<%= game.score.score2%>">
-            <%= game.score.score2 %>
-          </td>
-          <td data-name="score3" data-score="<%= game.score.score3%>">
-            <%= game.score.score3 %>
-          </td>
-          <td data-name="score4" data-score="<%= game.score.score4%>">
-            <%= game.score.score4 %>
-          </td>
-          <td data-name="score5" data-score="<%= game.score.score5%>">
-            <%= game.score.score5 %>
-          </td>
-          <td data-name="score6" data-score="<%= game.score.score6%>">
-            <%= game.score.score6 %>
-          </td>
-          <td data-name="score7" data-score="<%= game.score.score7%>">
-            <%= game.score.score7 %>
-          </td>
-          <td data-name="score8" data-score="<%= game.score.score8%>">
-            <%= game.score.score8 %>
-          </td>
-          <td data-name="score9" data-score="<%= game.score.score9%>">
-            <%= game.score.score9 %>
-          </td>
-          <td data-name="score10" data-score="<%= game.score.score10%>">
-            <%= game.score.score10 %>
-          </td>
-          <td>
-            <%= game.score.x_count %>
-          </td>
+          <td><%= game.total_score%></td>
           <td>
             <%= game.score.x_and_10_count %>
-          </td>
+          </td>     
           <td>
-            <%= game.score.ten_count %>
-          </td>
+            <%= game.score.x_count %>
+          </td> 
           <td>
-            <%= game.score.nine_count %>
-          </td>          
+            <%= link_to 'แก้ไข', edit_competition_game_path(id: game.id), class: 'btn btn-warning'%>
+          </td>
         </tr>
       <% end %>
     </tbody>
