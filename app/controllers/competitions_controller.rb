@@ -10,7 +10,7 @@ class CompetitionsController < ApplicationController
     compet.status = 'started'
     if compet.save!
       assign_current_competition(compet)
-      redirect_to new_game_path(compet)
+      redirect_to new_competition_game_path(compet)
     else
       redirect_to :back, alert: compet.errors.full_messages.to_sentence
     end
