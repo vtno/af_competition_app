@@ -1,5 +1,5 @@
 $(document).on('turbolinks:load', function(){
-  $('body').on('click', function(){
+  $('.competition_new').on('click', function(){
     toggleInputOff();
   });
 
