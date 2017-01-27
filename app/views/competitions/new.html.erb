@@ -1,45 +1,28 @@
 <div class="container competition">
   <div class="row">
     <h1>AF Competition App</h1>
-    <h3>Please select competition type<h3>
     <div class="col-md-12">
       <%= simple_form_for @compet do |f|%>
         <%= f.input :name, as: :hidden, input_html: { id: 'competition-name'} %>
       <% end %>
-      <div class="row text-center">
-        <div class="center">
-          <button class="btn btn-default btn-compet">Game01</button>
-          <button class="btn btn-default btn-compet">Game02</button>
-          <button class="btn btn-default btn-compet">Game03</button>
-          <button class="btn btn-default btn-compet">Game04</button>
-          <button class="btn btn-default btn-compet">Game05</button>
-        </div>    
-      </div>
-      <div class="row text-center">
-        <div class="center">
-          <button class="btn btn-default btn-compet">Game06</button>
-          <button class="btn btn-default btn-compet">Game07</button>
-          <button class="btn btn-default btn-compet">Game08</button>
-          <button class="btn btn-default btn-compet">Game09</button>
-          <button class="btn btn-default btn-compet">Game10</button>
-        </div>
-      </div>
-      <div class="row text-center">
-        <div class="center">
-          <button class="btn btn-default btn-compet">Game11</button>
-          <button class="btn btn-default btn-compet">Game12</button>
-          <button class="btn btn-default btn-compet">Game13</button>
-          <button class="btn btn-default btn-compet">Game14</button>
-          <button class="btn btn-default btn-compet">Game15</button>
-        </div>
-      </div>
-      <div class="row text-center">
-        <div class="center">
-          <button class="btn btn-default btn-compet">Game16</button>
-          <button class="btn btn-default btn-compet">Game17</button>
-          <button class="btn btn-default btn-compet">Game18</button>
-          <button class="btn btn-default btn-compet">Game19</button>
-          <button class="btn btn-default btn-compet">Game20</button>
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" data-toggle="tab" href="#qualification" role="tab" aria-controls="qualification">รอบเก็บคะแนน</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#final" role="tab" aria-controls="final">รอบตัดเชือก</a>
+        </li>
+      </ul>
+      <div class="tab-content">
+        <div class="tab-pane active" id="qualification" role="tabpanel">
+          <table class="table table-striped qualification">
+            <%= render partial: 'new_competition_section', locals: { range: 18 , score_type: 'qualification' }%>
+            <%= render partial: 'new_competition_section', locals: { range: 50 , score_type: 'qualification' }%>            
+          </table>
+        </div>              
+        <div class="tab-pane" id="final" role="tabpanel">
+          <table class="table table-striped final">
+          </table>
         </div>
       </div>
     </div>

@@ -17,7 +17,7 @@
           <tr>
             <td><%= link_to competition.name, competition_games_path(competition) %></td>
             <td><%= competition.status %></td>
-            <td><%= competition.created_at.strftime('%d-%m-%Y %H:%M') %></td>
+            <td><%= competition.date %></td>
             <td><%= link_to 'ลบ', competition_path(competition), method: :delete, class: 'btn btn-danger delete' %></td>
           </tr>
         <% end %>

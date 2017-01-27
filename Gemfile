@@ -18,6 +18,10 @@ gem 'sinatra', '>= 2.0.0.beta2', require: false
 gem 'turbolinks', '~> 5.x'
 gem 'uglifier', '>= 1.3.0'
 
+source 'https://rails-assets.org' do
+  gem 'rails-assets-tether', '>= 1.3.3'
+end
+
 group :development, :test do
   gem 'byebug'
   gem 'pry-byebug'

@@ -33,6 +33,6 @@ class CompetitionsController < ApplicationController
   end
 
   private def competition_params
-    params.require(:competition).permit(:name)
+    params.require(:competition).permit(:name, :score_type, :range)
   end
 end

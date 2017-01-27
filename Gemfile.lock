@@ -69,6 +69,7 @@ GIT
 
 GEM
   remote: https://rubygems.org/
+  remote: https://rails-assets.org/
   specs:
     active_model_serializers (0.10.4)
       actionpack (>= 4.1, < 6)
@@ -237,6 +238,7 @@ GEM
       rack
     rack-test (0.6.3)
       rack (>= 1.0)
+    rails-assets-tether (1.4.0)
     rails-dom-testing (2.0.2)
       activesupport (>= 4.2.0, < 6.0)
       nokogiri (~> 1.6)
@@ -386,6 +388,7 @@ DEPENDENCIES
   rack
   rack-mini-profiler
   rails!
+  rails-assets-tether (>= 1.3.3)!
   rspec-rails
   rubocop
   sass-rails (~> 5.0)

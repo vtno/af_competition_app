@@ -12,4 +12,8 @@
 class Competition < ApplicationRecord
   has_many :games
   enum status: %w(started finished)
+
+  def date
+    created_at.strftime('%d-%m-%Y %H:%M')
+  end
 end

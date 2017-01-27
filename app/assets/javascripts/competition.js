@@ -12,4 +12,17 @@ $(document).on('turbolinks:load', function(){
       return false
     }
   });
+
+  $('#myTab li a').click(function (e) {
+    e.preventDefault();
+    $(this).tab('show');
+  })
+
+  $('.qualification_18').on('click', function(){
+    $('.qualification_18_body').slideToggle();
+  });
+
+  $('.qualification_50').on('click', function(){
+    $('.qualification_50_body').slideToggle();
+  });
 });

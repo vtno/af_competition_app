@@ -1,5 +1,5 @@
 <div class="container mt-3">
-  <h1><%= @compet.name %></h1>
+  <h1><%= "การแข่งขันระดับ#{@compet.name} ระยะ #{@compet.range} เมตร รอบ #{@compet.score_type}" %></h1>
   <h3 class="mb-3">กรอกรายชื่อผู้เข้าแข่งขัน</h3>
     <%= form_tag "/competitions/#{@compet.id}/games" do %>
       <% 5.times do |index| %>

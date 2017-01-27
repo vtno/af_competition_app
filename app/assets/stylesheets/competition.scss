@@ -2,7 +2,9 @@
   .center {
     margin: auto;
   }
-  
+  table {
+    overflow: hidden;
+  }
   h1 {
     text-align: center;
     width: 100%;
@@ -17,13 +19,22 @@
   h3 {
     text-align: center;
     width: 100%;
+    margin-bottom: 50px;
   }
 
-  button {
-    margin: 10px 15px;
-    padding: 10px 15px;
-    &:hover {
-      background-color: #5CB85C;
+  .thead-inverse:hover {
+      th {
+        background-color: white;
+        color: black;
+        cursor: pointer;
+    }
+  }
+
+  .qualification, .final {
+     &_18, &_50 {
+      &_body {
+        display: none;        
+      }
     }
   }
 }

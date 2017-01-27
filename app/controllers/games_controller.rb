@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 class GamesController < ApplicationController
   def new
-    @compet = current_competition
+    @compet = Competition.find params[:competition_id]
   end
 
   def index
@@ -31,7 +31,7 @@ class GamesController < ApplicationController
       target_number = count
       target_slot = letter
       game = Game.new(
-        competition_id: current_competition.id,
+        competition_id: params[:competition_id],
         player_name: game['name'],
         target_number: target_number,
         target_slot: target_slot
