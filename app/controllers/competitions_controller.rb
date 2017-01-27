@@ -9,7 +9,6 @@ class CompetitionsController < ApplicationController
     compet = Competition.new(competition_params)
     compet.status = 'started'
     if compet.save!
-      assign_current_competition(compet)
       redirect_to new_competition_game_path(compet)
     else
       redirect_to :back, alert: compet.errors.full_messages.to_sentence
@@ -21,7 +20,6 @@ class CompetitionsController < ApplicationController
   end
 
   def show
-    assign_current_competition(compet)
     @competition = Competition.find params[:id]
   end
 

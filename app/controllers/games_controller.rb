@@ -5,8 +5,8 @@ class GamesController < ApplicationController
   end
 
   def index
-    @games = current_competition.games
-    @compet = current_competition
+    @games = Game.where(competition_id: params[:competition_id])
+    @compet = Competition.find params[:competition_id]
   end
 
   def edit
@@ -39,14 +39,14 @@ class GamesController < ApplicationController
       game.score = Score.new
       game.save!
     end
-    redirect_to games_path
+    redirect_to competition_games_path
   end
 
   def update
     game = Game.find(params[:id])
     game.assign_attrubutes(game_params)
     if game.save!
-      redirect_to edit_game_path(game)
+      redirect_to edit_competition_game_path(game)
     else
       raise
     end

@@ -7,6 +7,6 @@ class PlayersController < ApplicationController
   def search_players
     compet = Competition.find(params[:competition_id])
     game = compet.games.where(target_number: params[:target_number]).first
-    redirect_to edit_game_path(game)
+    redirect_to edit_competition_game_path(game)
   end
 end
