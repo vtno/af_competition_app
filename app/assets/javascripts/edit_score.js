@@ -48,7 +48,7 @@ $(document).on('turbolinks:load', function(){
   }
 
   function setFlash(text){
-    $flash = $(`<div class='flash error'>${text}</div>`)
+    $flash = $("<div class='flash error'>"+ text + "</div>");
     $('body').prepend($flash);
     $flash.on('click', function(){
       $flash.remove(); 
@@ -57,9 +57,11 @@ $(document).on('turbolinks:load', function(){
 
   function setKeypress($input) {
     $input.keyup(function(e){
-      console.log(e.keyCode)
       if(e.keyCode === 13){
-        console.log('request sent') 
+        // $.ajax({ 
+        //   type: "get",
+        //   url: "/"
+        // })
       } else if(e.keyCode === 27){
         toggleInputOff();
       } 
