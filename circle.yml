@@ -4,5 +4,9 @@ machine:
 deployment:
   production:
     branch: master
-    heroku:
-      appname: af-competition-app
+    commands:
+      - '[[ ! -s "$(git rev-parse --git-dir)/shallow" ]] || git fetch --unshallow'
+      - git push git.heroku.com/af-competition-app.git HEAD:master:
+          timeout: 300
+      - heroku run rake db:migrate --app af-competition-app:
+          timeout: 300
