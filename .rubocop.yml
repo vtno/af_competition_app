@@ -1,6 +1,7 @@
 AllCops:
   TargetRubyVersion: 2.3
-
+  Exclude:
+    - 'db/migrate' 
 Alias:
   Enabled: false
 
@@ -186,3 +187,7 @@ HashSyntax:
 
 Lambda:
   Enabled: false
+
+NumericPredicate:
+  Enabled: true
+  EnforcedStyle: predicate
