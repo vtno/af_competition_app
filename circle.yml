@@ -5,6 +5,9 @@ machine:
 dependencies:
   post:
     - bundle exec rake assets:precompile assets:clean
+
+database: 
+  post: 
     - bundle exec rake db:migrate
 
 deployment:
