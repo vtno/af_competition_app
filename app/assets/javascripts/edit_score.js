@@ -1,9 +1,10 @@
 $(document).on('turbolinks:load', function(){
   $('body').on('click', function(){
-    if($('input').length === 0) {
-      return;
-    }
     toggleInputOff();
+  });
+
+  $('.score span').on('click', function(e) {
+    $(e.target).parent().click();
   });
 
   $('.score').on('click', function(e){
@@ -22,20 +23,51 @@ $(document).on('turbolinks:load', function(){
     $cell.attr('data-previous', previousScore);
     $span.remove();
     $input = $("<input type='text' maxlength=2 size=2 />");
+    setKeypress($input);
     $input.val($cell.attr('data-previous'))
     $cell.append($input);
   }
 
   function toggleInputOff(){
+    $revertInput = $('input').first();  
+    if ($revertInput.length === 0) {
+      return;
+    }  
     //check and sent data to rails server
-    
+    data = $revertInput.val()
+    data = parseInt(data)
+    if( isNaN(data)) {
+      setFlash('กรุณาใส่ข้อมูลเป็นตัวเลข');
+    }
     //reset state
-    $revertInput = $('input').first();
     $revertParent = $revertInput.parent();
     revertData = $revertParent.attr('data-previous');
     $revertSpan = $("<span></span>").text(revertData);
     $revertInput.remove();
     $revertParent.append($revertSpan);
+  }
+
+  function setFlash(text){
+    $flash = $(`<div class='flash error'>${text}</div>`)
+    $('body').prepend($flash);
+    $flash.on('click', function(){
+      $flash.remove(); 
+    });
+  }
+
+  function setKeypress($input) {
+    $input.keyup(function(e){
+      console.log(e.keyCode)
+      if(e.keyCode === 13){
+        console.log('request sent') 
+      } else if(e.keyCode === 27){
+        toggleInputOff();
+      } 
+      else {
+        return true;
+      }
+    })
+    
   }
 
 });
