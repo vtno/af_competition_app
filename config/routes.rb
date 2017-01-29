@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   resources :competitions do
     resources :games
+    get '/ranking' => 'players#ranking'
   end
 
   resources :players

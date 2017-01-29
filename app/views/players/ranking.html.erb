@@ -1,0 +1,32 @@
+<div class="container pt-3">
+  <h1>อันดับผู้เข้าแข่งขัน <%= @competition.name %> ระยะ <%= @competition.range %>เมตร&nbsp;รอบ <%= @competition.score_type %></h1>
+  <table class='table'>
+    <tr>
+      <th>อันดับ</th>
+      <th>ชื่อ</th>
+      <th>คะแนนรวม</th>
+      <% if @competition.score_type == 'qualification' %>
+        <th>10</th>
+        <th>9</th>
+      <% else %>
+        <th>X + 10</th>
+        <th>10</th>
+      <% end %>
+    </tr>
+    <% @players.each.with_index(1) do |player, index|%>
+      <% if index > 16 %>
+        <tr class="table-inverse">
+      <% else %>
+        <tr>
+      <% end %>
+        <td><%= index %></td>
+        <td><%= player.player_name %></td>
+        <td><%= player.score.total_score %></td>
+        <td><%= player.score.ten_count %></td>
+        <td><%= player.score.nine_count %></td>      
+      </tr>
+    <% end %>
+  </table>
+  <%= link_to 'กลับ', :back, class: 'btn btn-primary'%>
+</div>
+

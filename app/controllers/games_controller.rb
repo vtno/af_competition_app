@@ -5,7 +5,7 @@ class GamesController < ApplicationController
   end
 
   def index
-    @games = Game.where(competition_id: params[:competition_id])
+    @games = Game.where(competition_id: params[:competition_id]).order(:target_number).order(:target_slot)
     @compet = Competition.find params[:competition_id]
   end
 

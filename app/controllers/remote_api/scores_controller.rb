@@ -39,7 +39,8 @@ module RemoteApi
       end
       score.count_all
       score.cal_total_score
-      if score.save!
+      game.total_score = score.total_score
+      if score.save! && game.save!
         render json: score,
                serializer: ScoreSerializer,
                updated_score: score_params[:score],

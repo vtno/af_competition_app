@@ -6,21 +6,24 @@
     </tr>
   </thead>
   <tbody class='<%= "#{score_type}_#{range}_body" %>'>
-    <%= render partial: 'competition_type', locals: { range: range, score_type: score_type, number: '1', compet_level: 'ประถมชาย', bow_type: 'recurve' }%>
-    <%= render partial: 'competition_type', locals: { range: range, score_type: score_type, number: '2', compet_level: 'ประถมหญิง', bow_type: 'recurve' }%>  
-    <%= render partial: 'competition_type', locals: { range: range, score_type: score_type, number: '3', compet_level: 'มัธยมชาย', bow_type: 'recurve' }%>  
-    <%= render partial: 'competition_type', locals: { range: range, score_type: score_type, number: '4', compet_level: 'มัธยมหญิง', bow_type: 'recurve' }%>  
-    <%= render partial: 'competition_type', locals: { range: range, score_type: score_type, number: '5', compet_level: 'มหาวิทยาลัยชาย', bow_type: 'recurve' }%>  
-    <%= render partial: 'competition_type', locals: { range: range, score_type: score_type, number: '6', compet_level: 'มหาวิทยาลัยหญิง', bow_type: 'recurve' }%>  
-    <%= render partial: 'competition_type', locals: { range: range, score_type: score_type, number: '7', compet_level: 'Open', bow_type: 'recurve' }%>  
-    <%= render partial: 'competition_type', locals: { range: range, score_type: score_type, number: '8', compet_level: 'Open', bow_type: 'recurve' }%>   
-    <%= render partial: 'competition_type', locals: { range: range, score_type: score_type, number: '9', compet_level: 'ประถมชาย', bow_type: 'barebow' }%>
-    <%= render partial: 'competition_type', locals: { range: range, score_type: score_type, number: '10', compet_level: 'ประถมหญิง', bow_type: 'barebow' }%>  
-    <%= render partial: 'competition_type', locals: { range: range, score_type: score_type, number: '11', compet_level: 'มัธยมชาย', bow_type: 'barebow' }%>  
-    <%= render partial: 'competition_type', locals: { range: range, score_type: score_type, number: '12', compet_level: 'มัธยมหญิง', bow_type: 'barebow' }%>  
-    <%= render partial: 'competition_type', locals: { range: range, score_type: score_type, number: '13', compet_level: 'มหาวิทยาลัยชาย', bow_type: 'barebow' }%>  
-    <%= render partial: 'competition_type', locals: { range: range, score_type: score_type, number: '14', compet_level: 'มหาวิทยาลัยหญิง', bow_type: 'barebow' }%>  
-    <%= render partial: 'competition_type', locals: { range: range, score_type: score_type, number: '15', compet_level: 'Open', bow_type: 'barebow' }%>  
-    <%= render partial: 'competition_type', locals: { range: range, score_type: score_type, number: '16', compet_level: 'Open', bow_type: 'barebow' }%>   
+    <% if range == 18 %>
+      <%= render partial: 'competition_type', locals: { range: range, score_type: score_type, number: '1', compet_level: 'Men - ประถม', bow_type: 'Recurve' }%>
+      <%= render partial: 'competition_type', locals: { range: range, score_type: score_type, number: '2', compet_level: 'Women - ประถม', bow_type: 'Recurve' }%>
+      <%= render partial: 'competition_type', locals: { range: range, score_type: score_type, number: '3', compet_level: 'Men - มัธยมต้น', bow_type: 'Recurve' }%>
+      <%= render partial: 'competition_type', locals: { range: range, score_type: score_type, number: '4', compet_level: 'Women - มัธยมต้น', bow_type: 'Recurve' }%>
+      <%= render partial: 'competition_type', locals: { range: range, score_type: score_type, number: '5', compet_level: 'Men - มัธยมปลาย', bow_type: 'Recurve' }%>
+      <%= render partial: 'competition_type', locals: { range: range, score_type: score_type, number: '6', compet_level: 'Women - มัธยมปลาย', bow_type: 'Recurve' }%>
+      <%= render partial: 'competition_type', locals: { range: range, score_type: score_type, number: '7', compet_level: 'Men - อุดมศึกษา', bow_type: 'Recurve' }%>
+      <%= render partial: 'competition_type', locals: { range: range, score_type: score_type, number: '8', compet_level: 'Women - อุดมศึกษา', bow_type: 'Recurve' }%>
+      <%= render partial: 'competition_type', locals: { range: range, score_type: score_type, number: '9', compet_level: 'Men - อุดมศึกษา', bow_type: 'Compound' }%>
+      <%= render partial: 'competition_type', locals: { range: range, score_type: score_type, number: '10', compet_level: 'Women - อุดมศึกษา', bow_type: 'Compound' }%>
+      <%= render partial: 'competition_type', locals: { range: range, score_type: score_type, number: '11', compet_level: 'Men', bow_type: 'Barebow' }%>
+      <%= render partial: 'competition_type', locals: { range: range, score_type: score_type, number: '12', compet_level: 'Women', bow_type: 'Barebow' }%>
+    <% else %>
+      <%= render partial: 'competition_type', locals: { range: range, score_type: score_type, number: '1', compet_level: 'Men - Open', bow_type: 'Recurve' }%>
+      <%= render partial: 'competition_type', locals: { range: range, score_type: score_type, number: '2', compet_level: 'Women - Open', bow_type: 'Recurve' }%>
+      <%= render partial: 'competition_type', locals: { range: range, score_type: score_type, number: '3', compet_level: 'Men - Open', bow_type: 'Compound' }%>
+      <%= render partial: 'competition_type', locals: { range: range, score_type: score_type, number: '4', compet_level: 'Women - Open', bow_type: 'Compound' }%>
+    <% end %>
   </tbody>
 
