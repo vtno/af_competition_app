@@ -2,6 +2,6 @@
   <td><%= number %></td>
   <td><%= "#{bow_type} #{compet_level}" %></td>
   <td>
-    <%= button_to 'สร้างการแข่งขัน', competitions_path(competition: { name: "#{compet_level} #{bow_type}" , range: range, score_type: score_type }), method: :post, class: 'btn btn-success' %>
+    <%= button_to 'สร้างการแข่งขัน', competitions_path(competition: { name: "#{bow_type} #{compet_level}" , range: range, score_type: score_type }), method: :post, class: 'btn btn-success' %>
   </td>
 </tr>
