@@ -12,7 +12,7 @@
 #
 
 class Competition < ApplicationRecord
-  has_many :games
+  has_many :games, dependent: :destroy
   enum status: %w(started finished)
 
   def date
