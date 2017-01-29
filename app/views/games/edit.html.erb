@@ -30,6 +30,20 @@
         <%= render partial: 'score', local: { count: 11, score: @score.score11 } %>
         <%= render partial: 'score', local: { count: 12, score: @score.score12 } %>
       <% end %>
+      <tr>
+        <td>คะแนนรวมทั้งหมด</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="total_score"><%= @score.total_score %></td>
+        <% if @competition.score_type == 'qualification' %>
+          <td class="ten_count"><%= @score.ten_count %></td>
+          <td class="nine_count"><%= @score.nine_count %></td>
+        <% else %>
+          <td><%= @score.x_and_ten_count %></td>
+          <td><%= @score.x_count %></td>
+        <% end %>
+      </tr>
     </table>
     <div class="col-md-4 offset-md-4 text-center">
       <%= link_to "กลับ", competition_games_path, class: 'btn btn-primary'%>

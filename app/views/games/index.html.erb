@@ -1,6 +1,6 @@
 <div class="container mt-3">
   <div class="col-md-8 offset-md-2"></div>
-  <h3><%= "#{@compet.name} วันที่ #{@compet.date}"%></h3>
+  <h3><%= "#{@compet.name} ระยะ #{@compet.range} เมตร"%></h3>
   <table class="table table-striped table-bordered">
     <thead class="thead-inverse">
       <tr>
@@ -8,8 +8,14 @@
         <th>ชื่อ</th>
         <th>หมายเลขเป้า</th>
         <th>คะแนนรวม</th>
-        <th>X + 10</th>        
-        <th>X</th>
+        <% if @compet.range == 18 %>
+          <th>10</th>        
+          <th>9</th>
+        <% else %>
+          <th>X + 10</th>        
+          <th>X</th>
+        <% end%>
+
         <th>แก้ไขคะแนน</th>
       </tr>
     </thead>
@@ -20,13 +26,22 @@
           <td><%= game.player_name %></td>
           <td><%= "#{game.target_number}#{game.target_slot}" %></td>
           </td>
-          <td><%= game.total_score %></td>
-          <td>
-            <%= Score.count_x(game.score.x_count) %>
-          </td>     
-          <td>
-            <%= Score.count_x_10(game.score.x_and_10_count) %>
-          </td> 
+          <td><%= game.score.total_score %></td>
+          <% if @compet.score_type == 'qualification' %>
+            <td>
+              <%= game.score.ten_count %>
+            </td>     
+            <td>
+              <%= game.score.nine_count %>
+            </td> 
+          <% else %>
+            <td>
+              <%= game.score.x_count %>
+            </td>     
+            <td>
+              <%= game.score.x_and_10_count %>
+            </td> 
+          <% end %>
           <td>
             <%= link_to 'แก้ไข', edit_competition_game_path(id: game.id), class: 'btn btn-warning'%>
           </td>

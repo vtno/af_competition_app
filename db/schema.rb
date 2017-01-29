@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170127183010) do
+ActiveRecord::Schema.define(version: 20170129195209) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,10 +50,11 @@ ActiveRecord::Schema.define(version: 20170127183010) do
     t.integer  "score8",         default: [0, 0, 0],              array: true
     t.integer  "score9",         default: [0, 0, 0],              array: true
     t.integer  "score10",        default: [0, 0, 0],              array: true
-    t.integer  "x_count",        default: [0, 0, 0],              array: true
-    t.integer  "x_and_10_count", default: [0, 0, 0],              array: true
-    t.integer  "ten_count",      default: [0, 0, 0],              array: true
-    t.integer  "nine_count",     default: [0, 0, 0],              array: true
+    t.integer  "x_count",        default: 0
+    t.integer  "x_and_10_count", default: 0
+    t.integer  "ten_count",      default: 0
+    t.integer  "nine_count",     default: 0
+    t.integer  "total_score",    default: 0
   end
 
 end

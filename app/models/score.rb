@@ -18,41 +18,84 @@
 #  score8         :integer          default(["0", "0", "0"]), is an Array
 #  score9         :integer          default(["0", "0", "0"]), is an Array
 #  score10        :integer          default(["0", "0", "0"]), is an Array
-#  x_count        :integer          default(["0", "0", "0"]), is an Array
-#  x_and_10_count :integer          default(["0", "0", "0"]), is an Array
-#  ten_count      :integer          default(["0", "0", "0"]), is an Array
-#  nine_count     :integer          default(["0", "0", "0"]), is an Array
+#  x_count        :integer          default(0)
+#  x_and_10_count :integer          default(0)
+#  ten_count      :integer          default(0)
+#  nine_count     :integer          default(0)
+#  total_score    :integer          default(0)
 #
 
 class Score < ApplicationRecord
   belongs_to :game
- class << self
-    def calc(score)
-      sum = 0
-      score.each do |x|
-        if x == 11
-          sum += 10
-        else
-          sum += x
-        end
-      end
-      sum
-    end
 
-    def count_x(score)
-      count = 0
-      score.each do |x|
-        count += 1 if x == 11
-      end
-      count
-    end
+  class << self
+     def calc(score)
+       sum = 0
+       score.each do |x|
+         sum += if x == 11
+                  10
+                else
+                  x
+                end
+       end
+       sum
+     end
 
-    def count_x_10(score)
-      count = 0
-      score.each do |x|
-        count += 1 if x == 10 || x == 11
-      end
-      count
+     def count_score(score, pos)
+       count = 0
+       score.each do |x|
+         count += 1 if x == pos
+       end
+       count
+     end
+
+     def count_10(score)
+       count = 0
+       score.each do |x|
+         count += 1 if x == 10
+       end
+       count
+     end
+
+     def count_x(score)
+       count = 0
+       score.each do |x|
+         count += 1 if x == 11
+       end
+       count
+     end
+
+     def count_x_10(score)
+       count = 0
+       score.each do |x|
+         count += 1 if x == 10 || x == 11
+       end
+       count
+     end
+  end
+
+  def cal_total_score
+    total_sum = 0
+    (1..10).each do |index|
+      total_sum += self.send("score#{index}").inject(0) { |sum, x| sum + x }
     end
+    self.total_score = total_sum
+    save!
+  end
+
+  def count_all
+    xc = 0; x10 = 0; ten = 0; nine = 0
+    (1..10).each do |index|
+      score = self.send("score#{index}")
+      xc += Score.count_score(score, 11)
+      x10 += Score.count_x_10(score)
+      ten += Score.count_score(score, 10)
+      nine += Score.count_score(score, 9)
+    end
+    self.x_count = xc
+    self.x_and_10_count = x10
+    self.ten_count = ten
+    self.nine_count = nine
+    save!
   end
 end
