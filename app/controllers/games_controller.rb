@@ -11,6 +11,7 @@ class GamesController < ApplicationController
 
   def edit
     @game = Game.find(params[:id])
+    @competition = Competition.find params[:competition_id]
     @score = @game.score
   end
 

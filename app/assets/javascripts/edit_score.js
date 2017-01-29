@@ -3,6 +3,10 @@ $(document).on('turbolinks:load', function(){
     toggleInputOff();
   });
 
+  $('.games_edit').on('click', function(){
+    toggleInputOff();
+  });
+
   $('.score span').on('click', function(e) {
     $(e.target).parent().click();
   });

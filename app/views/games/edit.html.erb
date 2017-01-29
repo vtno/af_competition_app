@@ -1,20 +1,26 @@
 <div class="container">
-  <div class="col-md-8 offset-md-2">
+  <div class="col-md-12 col-lg-8 offset-lg-2">
     <div class="col-md-12 mt-3">
+      <h2><%= "#{@competition.name}_#{@competition.range} รอบ #{@competition.score_type}" %></h2>
       <h3>ชื่อ:&nbsp;<small><%= @game.player_name %></small></h3>
       <h4>หมายเลขเป้า:&nbsp;
         <%= "#{@game.target_number}#{@game.target_slot}"%>
       </h4>
     </div>
-    <table class="table table-striped">
+    <table class="table table-inverse">
       <tr>
         <th>หมายเลขชุด</th>
-        <th>รอบที่ 1</th>
-        <th>รอบที่ 2</th>
-        <th>รอบที่ 3</th>
+        <th></th>
+        <th></th>
+        <th></th>
         <th>คะแนนรวม</th>
-        <th>X + 10</th>
-        <th>X</th>        
+        <% if @competition.score_type == 'qualification' %>
+          <th>10</th>
+          <th>9</th>        
+        <% else %>        
+          <th>X + 10</th>
+          <th>X</th>
+        <% end %>        
       </tr>
       <% (1..10).each do |count| %>
         <%= render partial: 'score', locals: { count: count, score: @score.send("score#{count}") } %> 
@@ -26,7 +32,7 @@
       <% end %>
     </table>
     <div class="col-md-4 offset-md-4 text-center">
-      <%= link_to "กลับ", :back, class: 'btn btn-primary'%>
+      <%= link_to "กลับ", competition_games_path, class: 'btn btn-primary'%>
     </div>
   </div>
 </div>
