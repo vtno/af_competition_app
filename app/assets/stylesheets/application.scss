@@ -24,7 +24,7 @@ body {
   font-size: 1rem;
 }
 
-@media screen and (min-width: 768px){
+@media (max-width: 1000px){
   .container { 
     width: 100%;
   }
