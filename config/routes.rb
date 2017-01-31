@@ -2,7 +2,7 @@
 Rails.application.routes.draw do
   namespace :remote_api, defaults: { format: 'json' } do
     resources :games do
-      resource :score, only: [:update]
+      resource :score, only: [:update, :player_update]
     end
   end
 
@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   resources :players
   get '/find' => 'players#find'
+  get '/score_card' => 'players#score_card'
   post '/search_players' => 'players#search_players'
   root 'competitions#new'
 end

@@ -106,7 +106,6 @@ $(document).on('turbolinks:load', function(){
         success: function(response){
           toggleInputOff($('input').first());
           $('.total_score').text(response.total_score)
-          console.log(response.updated_score)
           if(response.updated_score === '11') {
             $cell.find('span').text('x');
           } else {

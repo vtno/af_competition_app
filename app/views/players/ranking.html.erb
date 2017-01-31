@@ -5,12 +5,12 @@
       <th>อันดับ</th>
       <th>ชื่อ</th>
       <th>คะแนนรวม</th>
-      <% if @competition.score_type == 'qualification' %>
+      <% if @competition.range == 18 %>
         <th>10</th>
         <th>9</th>
       <% else %>
         <th>X + 10</th>
-        <th>10</th>
+        <th>X</th>
       <% end %>
     </tr>
     <% @players.each.with_index(1) do |player, index|%>
@@ -22,8 +22,13 @@
         <td><%= index %></td>
         <td><%= player.player_name %></td>
         <td><%= player.score.total_score %></td>
-        <td><%= player.score.ten_count %></td>
-        <td><%= player.score.nine_count %></td>      
+        <% if @competition.range == 18%>
+          <td><%= player.score.ten_count %></td>
+          <td><%= player.score.nine_count %></td>
+        <% else %>
+          <td><%= player.score.x_and_10_count %></td>
+          <td><%= player.score.x_count %></td>
+        <% end %>      
       </tr>
     <% end %>
   </table>
