@@ -27,7 +27,7 @@
 
 class ScoreSerializer < ActiveModel::Serializer
   attributes :id, :updated_score, :total_score, :row_sum_score, :range,
-             :row_10_count, :row_9_count,
+             :row_10_count, :row_9_count, :row_x_count, :row_x_10_count,
              :x_count, :x_and_10_count, :ten_count, :nine_count
 
   def updated_score
@@ -50,6 +50,13 @@ class ScoreSerializer < ActiveModel::Serializer
     Score.count_score(object.send("score#{instance_options[:round]}"), 9)
   end
 
+  def row_x_count
+    Score.count_score(object.send("score#{instance_options[:round]}"), 11)
+  end
+
+  def row_x_10_count
+    Score.count_x_10(object.send("score#{instance_options[:round]}"))
+  end
   def range
     instance_options[:range]
   end

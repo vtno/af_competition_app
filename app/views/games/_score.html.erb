@@ -1,13 +1,13 @@
 <tr class="row-<%= count %>" data-id="<%= @score.id %>" data-round="<%= count %>" data-compet="<%= @competition.id%>">
   <th>ชุดที่ <%= count %></th>
   <td class="score" data-position="0">
-    <span><%= score[0]%></span>
+    <span><%= render_score score[0]%></span>
   </td>
   <td class="score" data-position="1">
-    <span><%= score[1]%></span>
+    <span><%= render_score score[1]%></span>
   </td>
   <td class="score" data-position="2">
-     <span><%= score[2]%></span>
+     <span><%=render_score score[2]%></span>
   </td>
   <td class=" score total-score">
     <span><%= Score.calc(score)%></span>
@@ -24,7 +24,7 @@
       <span><%= Score.count_x_10(score)%></span>
     </td>
     <td class=" score count-x">
-      <span><%= Score.count_score(score, x)%></span>
+      <span><%= Score.count_score(score, 11)%></span>
     </td>
   <% end %>
 </tr>

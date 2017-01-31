@@ -76,8 +76,11 @@ class Score < ApplicationRecord
 
   def cal_total_score
     total_sum = 0
-    (1..10).each do |index|
-      total_sum += self.send("score#{index}").inject(0) { |sum, x| sum + x }
+    (1..12).each do |index|
+      self.send("score#{index}").each do |x|
+        total_sum += x if x != 11
+        total_sum += 10 if x == 11
+      end
     end
     self.total_score = total_sum
     save!
@@ -85,7 +88,7 @@ class Score < ApplicationRecord
 
   def count_all
     xc = 0; x10 = 0; ten = 0; nine = 0
-    (1..10).each do |index|
+    (1..12).each do |index|
       score = self.send("score#{index}")
       xc += Score.count_score(score, 11)
       x10 += Score.count_x_10(score)

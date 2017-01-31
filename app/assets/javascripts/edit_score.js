@@ -1,10 +1,14 @@
 $(document).on('turbolinks:load', function(){
-  $('.competition_new').on('click', function(){
-    toggleInputOff();
+  $('.competition_new').on('click', function(e){
+    toggleInputOff($('input').first());
   });
 
-  $('.games_edit').on('click', function(){
-    toggleInputOff();
+  $('.games_edit').on('click', function(e){
+    toggleInputOff($('input').first());
+  });
+
+  $('.players_score_card').on('click', function(e){
+    toggleInputOff($('input').first());
   });
 
   $('.score span').on('click', function(e) {
@@ -16,7 +20,8 @@ $(document).on('turbolinks:load', function(){
     if ($(e.target).find('span').length === 0) {
       return;
     }
-    toggleInputOff();
+
+    toggleInputOff($('input').first());
     toggleInputOn(e);
   });
 
@@ -33,19 +38,25 @@ $(document).on('turbolinks:load', function(){
     $cell.append($input);
   }
 
-  function toggleInputOff(){
-    $revertInput = $('input').first();  
+  function toggleInputOff($revertInput){ 
     if ($revertInput.length === 0) {
+      resetState($revertInput)
       return;
     }  
     //check and sent data to rails server
     data = $revertInput.val()
-    data = parseInt(data)
-    if( isNaN(data)) {
-      setFlash('กรุณาใส่ข้อมูลเป็นตัวเลข');
-    } else {
-      updateScore($revertInput);
+    if (data != 'x') {
+      data = parseInt(data)
+      if( isNaN(data)) {
+        setFlash('กรุณาใส่ข้อมูลเป็นตัวเลข');
+        return;
+      }
     }
+    updateScore($revertInput);
+    resetState($revertInput)
+  }
+
+  function resetState($revertInput) {
     //reset state
     $revertParent = $revertInput.parent();
     revertData = $revertParent.attr('data-previous');
@@ -66,28 +77,41 @@ $(document).on('turbolinks:load', function(){
   }
 
   function updateScore($input) {
+    if($input.val() === 0){
+      return;
+    }
     $row = $input.closest('tr')
     $cell = $input.closest('td')
     game_id = $row.data('id')
     round = $row.data('round')
     compet_id = $row.data('compet')
     position = $cell.data('position')
+    if ($input.val() === 'x') {
+      score = 11
+    } else {
+      score = $input.val()
+    }
     $.ajax({ 
       type: "PUT",
       url: "/remote_api/games/" + game_id + "/score",
       data: 
         { 
           scores: { 
-            score: $input.val(), 
+            score: score, 
             round: round, 
             position: position
           }, 
           competition_id: compet_id 
         },   
         success: function(response){
-          toggleInputOff();
+          toggleInputOff($('input').first());
           $('.total_score').text(response.total_score)
-          $cell.find('span').text(response.updated_score);
+          console.log(response.updated_score)
+          if(response.updated_score === '11') {
+            $cell.find('span').text('x');
+          } else {
+            $cell.find('span').text(response.updated_score);
+          }
           $cell.siblings('.total-score').text(response.row_sum_score);
           if(response.range === 18) {
             $cell.siblings('.count-10').text(response.row_10_count);
@@ -95,8 +119,8 @@ $(document).on('turbolinks:load', function(){
             $('.ten_count').text(response.ten_count);
             $('.nine_count').text(response.nine_count);
           } else {
-            $cell.siblings('.count-x-10').text(response.x_count);
-            $cell.siblings('.count-x').text(response.x_and_10_count);
+            $cell.siblings('.count-x-10').text(response.row_x_and_10_count);
+            $cell.siblings('.count-x').text(response.row_x_count);
           }
         }
     })
@@ -104,7 +128,7 @@ $(document).on('turbolinks:load', function(){
   function setKeypress($input) {
     $input.keyup(function(e){
       if(e.keyCode === 13 || e.keyCode === 27){
-        toggleInputOff();
+        toggleInputOff($('input').first());
       } else {
         return true;
       }
