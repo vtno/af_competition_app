@@ -23,6 +23,10 @@ class PlayersController < ApplicationController
                end
   end
 
+  def all_rankings
+    @competitions = Competition.all
+  end
+
   def search_players
     compet = Competition.find params[:competition_id]
     games = compet.games.where(target_number: params[:target_number])
