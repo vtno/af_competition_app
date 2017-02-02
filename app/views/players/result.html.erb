@@ -1,0 +1,41 @@
+<div class="container pt-3">
+  <h1>ผลการแข่งขัน <%= render_compet_name(@competition) %></h1>
+  <table class='table'>
+    <% @pairs.each do |pair|%>
+      <tr class="table-inverse">
+        <th>ชื่อ</th>
+        <th>หมายเลขเบาะ</th>
+        <th>แต้ม</th>
+        <th>คะแนนรวม</th>
+        <% if @competition.range == 18 %>
+          <th>10</th>
+          <th>9</th>
+        <% else %>
+          <th>X + 10</th>
+          <th>X</th>
+        <% end %>
+      </tr>
+      <% pair.each do |game|%>
+        <% if check_winner(pair, @competition.range) == game %>
+          <tr class="bg-success">   
+        <% else %>
+          <tr>
+        <% end %>   
+          <td><%= game.player_name %></td>
+          <td><%= target_id(game) %></td>
+          <td><%= game.score.total_points %></td>
+          <td><%= game.score.total_score %></td>
+          <% if @competition.range == 18%>
+            <td><%= game.score.ten_count %></td>
+            <td><%= game.score.nine_count %></td>
+          <% else %>
+            <td><%= game.score.x_and_10_count %></td>
+            <td><%= game.score.x_count %></td>
+          <% end %> 
+        </tr>
+      <% end %>
+    <% end %>
+  </table>
+  <%= link_to 'กลับ', competition_games_path, class: 'btn btn-primary'%>
+</div>
+

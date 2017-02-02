@@ -15,7 +15,7 @@
       <tbody>
         <% @competitions.each do |competition| %>
           <tr>
-            <td><%= link_to "#{competition.name} ระยะ #{competition.range} เมตร", competition_games_path(competition) %></td>
+            <td><%= link_to " #{render_compet_name(competition)}", competition_games_path(competition) %></td>
             <td><%= competition.status %></td>
             <td><%= competition.date %></td>
             <td><%= link_to 'ลบ', competition_path(competition), method: :delete, class: 'btn btn-danger delete' %></td>

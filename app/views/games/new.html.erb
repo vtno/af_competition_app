@@ -2,8 +2,10 @@
   <h1><%= "การแข่งขัน #{@compet.name} ระยะ #{@compet.range} เมตร รอบ #{@compet.score_type}" %></h1>
   <h3 class="mb-3">กรอกรายชื่อผู้เข้าแข่งขัน</h3>
     <%= form_tag "/competitions/#{@compet.id}/games" do %>
-      <% 20.times do |index| %>
-        <div class="">
+      <%= check_box_tag 'team' %>
+      <%= label_tag 'แข่งแบบทีม' %>            
+      <% determine_players_amount(@compet).times do |index| %>
+        <div>
           <div class="form-group row">
             <div class="col-md-6">
               <%= label_tag "ชื่อผู้เข้าแข่งขันลำดับที่#{index + 1}"%>

@@ -16,18 +16,17 @@ class GamesController < ApplicationController
   end
 
   def create
-    count = 0
-    params[:player].each.with_index do |game, index|
-      unless game['name'] == ''
-        game = Game.new(
-          competition_id: params[:competition_id],
-          player_name: game['name'],
-          target_number: game['target_number'],
-          target_slot: game['target_slot']
-        )
-        game.score = Score.new
-        game.save!
-      end
+    params[:player].each do |game|
+      next if game['name'] == ''
+      game = Game.new(
+        competition_id: params[:competition_id],
+        player_name: game['name'],
+        target_number: game['target_number'],
+        target_slot: game['target_slot'],
+        team: params[:team] || false
+      )
+      game.score = Score.new
+      game.save!
     end
     redirect_to competition_games_path
   end

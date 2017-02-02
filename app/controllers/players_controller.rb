@@ -4,6 +4,11 @@ class PlayersController < ApplicationController
     @on_going_competitions = Competition.where(status: 'started')
   end
 
+  def result
+    @competition = Competition.find params[:competition_id]
+    @pairs = @competition.create_pair
+  end
+
   def ranking
     @competition = Competition.find(params[:competition_id])
     @players = if @competition.range == 18

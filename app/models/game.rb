@@ -5,12 +5,13 @@
 #  id             :integer          not null, primary key
 #  player_name    :string
 #  score_type     :integer
-#  total_score    :integer
+#  total_score    :integer          default(0)
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #  competition_id :integer
 #  target_number  :integer
 #  target_slot    :string
+#  team           :boolean
 #
 
 class Game < ApplicationRecord

@@ -13,6 +13,10 @@
         <th></th>
         <th></th>
         <th></th>
+        <% if @competition.games.first.team %>
+          <th></th>
+          <th></th>
+        <% end %>
         <th>คะแนนรวม</th>
         <% if @competition.range == 18 %>
           <th>10</th>
@@ -22,25 +26,24 @@
           <th>X</th>
         <% end %>        
       </tr>
-      <% (1..10).each do |count| %>
-        <%= render partial: 'score', locals: { count: count, score: @score.send("score#{count}") } %> 
-      <% end %>
-
-      <% if @competition.range == 50 %>
-        <%= render partial: 'score', locals: { count: 11, score: @score.score11 } %>
-        <%= render partial: 'score', locals: { count: 12, score: @score.score12 } %>
+      <% determine_round(@competition).times do |count| %>
+        <%= render partial: 'score', locals: { count: count + 1, score: @score.send("score#{count + 1}") } %> 
       <% end %>
       <tr>
         <td>คะแนนรวมทั้งหมด</td>
         <td></td>
         <td></td>
         <td></td>
+        <% if @competition.games.first.team %>
+          <td></td>
+          <td></td>
+        <% end %>
         <td class="total_score"><%= @score.total_score %></td>
         <% if @competition.score_type == 'qualification' %>
           <td class="ten_count"><%= @score.ten_count %></td>
           <td class="nine_count"><%= @score.nine_count %></td>
         <% else %>
-          <td class="x10_count"><%= @score.x_and_ten_count %></td>
+          <td class="x10_count"><%= @score.x_and_10_count %></td>
           <td class="x_count"><%= @score.x_count %></td>
         <% end %>
       </tr>

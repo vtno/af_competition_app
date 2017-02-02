@@ -1,0 +1,40 @@
+<table class="table table-striped">
+  <thead class="table-inverse">
+    <tr>
+      <th>อันดับ</th>
+      <th>ชื่อ</th>
+      <th>หมายเลขเป้า</th>    
+      <th>คะแนนรวม</th>
+      <th>แต้ม</th>
+      <% if @compet.range == 18%>
+        <th>10</th>
+        <th>9</th>
+      <% else %>
+        <th>X + 10</th>
+        <th>X</th>
+      <% end %>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @compet.games.each.with_index(1) do |game, index| %>
+      <tr>
+        <td><%= index %></td>
+        <td><%= game.player_name %></td>
+        <td><%= target_id(game) %></td>
+        <td><%= game.score.total_score %></td>
+        <td></td>
+        <% if @compet.range == 18 %>
+          <td><%= game.score.ten_count %></td>
+          <td><%= game.score.nine_count %></td>
+        <% else %>
+          <td><%= game.score.x_and_10_count %></td>
+          <td><%= game.score.x_count %></td>
+        <% end %>
+        <td>
+          <%= link_to 'แก้ไข', edit_competition_game_path(id: game.id), class: 'btn btn-warning' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

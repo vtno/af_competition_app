@@ -8,10 +8,13 @@ Rails.application.routes.draw do
 
   resources :competitions do
     resources :games
+    resources :duels
     get '/ranking' => 'players#ranking'
+    get '/result' => 'players#result'
   end
 
   resources :players
+
   get '/find' => 'players#find'
   get '/score_card' => 'players#score_card'
   get '/all_rankings' => 'players#all_rankings'

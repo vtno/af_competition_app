@@ -18,4 +18,10 @@ class Competition < ApplicationRecord
   def date
     created_at.strftime('%d-%m-%Y %H:%M')
   end
+
+  def create_pair
+    half_length = games.count / 2
+    left_side = games.to_a.slice(0, half_length)
+    left_side.zip(games.to_a.reverse)
+  end
 end
