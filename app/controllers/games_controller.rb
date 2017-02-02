@@ -17,25 +17,13 @@ class GamesController < ApplicationController
 
   def create
     count = 0
+    binding.pry
     params[:player].each.with_index do |game, index|
-      count += 1 if (index % 4) == 0
-      letter = case ((index % 4) + 1)
-               when 1
-                 'A'
-               when 2 
-                 'B'
-               when 3
-                 'C'
-               else
-                 'D'
-               end
-      target_number = count
-      target_slot = letter
       game = Game.new(
         competition_id: params[:competition_id],
         player_name: game['name'],
-        target_number: target_number,
-        target_slot: target_slot
+        target_number: game['target_number'],
+        target_slot: game['target_slot']
       )
       game.score = Score.new
       game.save!
@@ -51,9 +39,5 @@ class GamesController < ApplicationController
     else
       raise
     end
-  end
-
-  private def game_params
-    params.require(:game).permit(:name)
   end
 end
