@@ -16,6 +16,7 @@
         <% if @competition.games.first.team %>
           <th></th>
           <th></th>
+          <th>แต้ม</th>
         <% end %>
         <th>คะแนนรวม</th>
         <% if @competition.range == 18 %>
@@ -37,6 +38,7 @@
         <% if @competition.games.first.team %>
           <td></td>
           <td></td>
+          <td class="total_points"><%= @score.total_points%></td>
         <% end %>
         <td class="total_score"><%= @score.total_score %></td>
         <% if @competition.score_type == 'qualification' %>

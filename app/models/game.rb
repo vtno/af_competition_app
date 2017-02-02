@@ -19,6 +19,7 @@ class Game < ApplicationRecord
   has_one :score, dependent: :destroy
   scope :sorted_games, -> { 
     joins(:score).
+    order('scores.total_points').
     order('scores.total_score').
     order('scores.ten_count').
     order('scores.nine_count').

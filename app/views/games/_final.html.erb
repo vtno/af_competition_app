@@ -23,7 +23,7 @@
         <td><%= game.player_name %></td>
         <td><%= target_id(game) %></td>
         <td><%= game.score.total_score %></td>
-        <td></td>
+        <td><%= game.score.total_points %></td>
         <% if @compet.range == 18 %>
           <td><%= game.score.ten_count %></td>
           <td><%= game.score.nine_count %></td>

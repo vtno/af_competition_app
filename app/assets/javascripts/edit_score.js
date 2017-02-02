@@ -89,8 +89,15 @@ $(document).on('turbolinks:load', function(){
     round = $row.data('round')
     compet_id = $row.data('compet')
     position = $cell.data('position')
+    $point = $('#point')
+    point = 0
+    pointPos = $point.data('position')
+    console.log()
     if ($input.val() === 'x') {
       score = 11
+    } else if ($input.parents().attr('id') === 'point') {
+      score = 0 
+      point = $input.val()
     } else {
       score = $input.val()
     }
@@ -102,12 +109,15 @@ $(document).on('turbolinks:load', function(){
           scores: { 
             score: score, 
             round: round, 
-            position: position
+            position: position,
+            point: point,
+            pointPos: pointPos
           }, 
           competition_id: compet_id 
         },   
         success: function(response){
           toggleInputOff($('input').first());
+          $('#point').text(response.point)
           $('.total_score').text(response.total_score)
           if(response.updated_score === '11') {
             $cell.find('span').text('x');

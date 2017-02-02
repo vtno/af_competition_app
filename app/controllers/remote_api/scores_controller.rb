@@ -6,8 +6,10 @@ module RemoteApi
       compet = Competition.find(params[:competition_id])
       score = game.score
       score.send("score#{score_params[:round]}")[score_params[:position].to_i] = score_params[:score].to_i
+      score.points[score_params[:pointPos].to_i] = score_params[:point].to_i if score_params[:point].to_i.is_a? Numeric
       row_sum_score = Score.calc(score.send("score#{score_params[:round]}"))
       score.count_all
+      score.cal_total_points
       score.cal_total_score
       game.total_score = score.total_score
       if score.save! && game.save!
@@ -24,7 +26,7 @@ module RemoteApi
     end
 
     private def score_params
-      params.require(:scores).permit(:score, :round, :position)
+      params.require(:scores).permit(:score, :round, :position, :point, :pointPos)
     end
   end
 end
