@@ -10,6 +10,13 @@
         <th>arr</th>
         <th>arr</th>
         <th>arr</th>
+        <% if @competition.games.first.team %>
+          <th>arr</th>
+          <th>arr</th>
+        <% end %>
+        <% if @competition.score_type != 'qualification' %>
+          <th>แต้ม</th>
+        <% end %>
         <th>รวม</th>
         <% if @competition.range == 18 %>
           <th>10</th>
@@ -28,7 +35,11 @@
     <% (1..determine_round(@competition)).each do |index| %>
       <%= render partial: 'round_button', locals: { index: index }%>
     <% end %>
-    <%= link_to 'ดูผลคะแนน', competition_ranking_path(@competition), class: 'btn btn-success btn-block', style: 'margin-top: 5rem;' %>
+    <% if @competition.score_type == 'qualification '%>
+      <%= link_to 'ดูผลคะแนน', competition_ranking_path(@competition), class: 'btn btn-success btn-block', style: 'margin-top: 5rem;' %>
+    <% else %>
+      <%= link_to 'ดูผลการแข่งขัน', competition_result_path(@competition), class: 'btn btn-success btn-block', style: 'margin-top: 5rem;' %>
+    <% end %>
     <%= link_to 'กลับหน้าแรก', find_path, class: 'btn btn-primary btn-block', style: 'margin-top: 5rem;' %>
   </div>
 </div>

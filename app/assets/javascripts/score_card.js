@@ -21,7 +21,13 @@ $(document).on('turbolinks:load', function(){
      game_id = $(e.target).closest('.game-row').data('id')
      round = $(e.target).closest('.game-row').data('round')
      position = $(e.target).data('position')
+     point = 0
+     pointPos = $('#point').find('input').data('position')
      compet_id = $('.game-row').data('compet-id')
+     if ($(e.target).attr('id') === 'point') {
+       point = score
+       score = 0
+     }
      $.ajax({ 
       type: "PUT",
       url: "/remote_api/games/" + game_id + "/score",
@@ -30,7 +36,9 @@ $(document).on('turbolinks:load', function(){
           scores: { 
             score: score, 
             round: round, 
-            position: position
+            position: position,
+            point: point,
+            pointPos: pointPos
           }, 
           competition_id: compet_id 
         },   

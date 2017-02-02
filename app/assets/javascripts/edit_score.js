@@ -92,7 +92,6 @@ $(document).on('turbolinks:load', function(){
     $point = $('#point')
     point = 0
     pointPos = $point.data('position')
-    console.log()
     if ($input.val() === 'x') {
       score = 11
     } else if ($input.parents().attr('id') === 'point') {
