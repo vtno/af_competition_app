@@ -1,4 +1,4 @@
-<tr class="game-row round <%= "round_#{index}" %>" data-id="<%= game.id %>" data-round="<%= index %>" data-compet-id="<%= @competition.id %>">
+<tr class="game-row round <%= "round_#{index}" %>" data-id="<%= game.id %>" data-round="<%= index %>" data-compet-id="<%= competition.id %>">
   <td class="player-score">
     <span>
       <%= game.player_name %>
@@ -10,20 +10,20 @@
     </span>
   </td>
   <td class="player-score">
-    <%= select_tag 'score', options_for_select(score_option(@competition), game.score.send("score#{index}")[0]), class: 'select-score score1', data: { position: 0 } %>
+    <%= select_tag 'score', options_for_select(score_option(competition), game.score.send("score#{index}")[0]), class: 'select-score score1', data: { position: 0 } %>
   </td>
   <td class="player-score">
-    <%= select_tag 'score', options_for_select(score_option(@competition), game.score.send("score#{index}")[1]), class: 'select-score score2', data: { position: 1 } %>
+    <%= select_tag 'score', options_for_select(score_option(competition), game.score.send("score#{index}")[1]), class: 'select-score score2', data: { position: 1 } %>
   </td>
   <td class="player-score">
-    <%= select_tag 'score', options_for_select(score_option(@competition), game.score.send("score#{index}")[2]), class: 'select-score score3', data: { position: 2 } %>
+    <%= select_tag 'score', options_for_select(score_option(competition), game.score.send("score#{index}")[2]), class: 'select-score score3', data: { position: 2 } %>
   </td>
   <td class="player-score total-score">
     <span>
       <%= Score.calc game.score.send("score#{index}")%>
       </span>
   </td>
-  <% if @competition.range == 18 %>
+  <% if competition.range == 18 %>
     <td class="player-score count-10">
       <span><%= Score.count_score(game.score.send("score#{index}"), 10)%></span>
     </td>

@@ -21,7 +21,7 @@
       </thead>
       <tbody>
         <% (1..determine_round(@competition)).each do |index| %>
-          <%= render partial: "row", collection: @games, as: :game, locals: { index: index } %>
+          <%= render partial: "row", collection: @games, as: :game, locals: { index: index, competition: @competition } %>
         <% end %>
       </tbody>
     </table>

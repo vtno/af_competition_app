@@ -7,6 +7,8 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  status     :integer
+#  score_type :string
+#  range      :integer
 #
 
 require 'rails_helper'

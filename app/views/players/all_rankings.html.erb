@@ -1,0 +1,29 @@
+<div class="container slider">
+  <% @competitions.each do |competition| %>
+    <div>
+      <h4 class="text-center">การแข่งขัน <%= competition.name %> ระยะ <%= competition.range %> เมตร</h4>
+      <table class="table table-striped" id="score-table">
+        <thead class="table-inverse">
+          <tr>
+            <th>อันดับ</th>
+            <th>ชื่อ</th>
+            <th>หมายเลขเป้า</th>
+            <th>คะแนนรวม</th>
+            <% if competition.range == 18 %>
+              <th>10</th>
+              <th>9</th>
+            <% else %>
+              <th>X + 10</th>
+              <th>X</th>
+            <% end %>
+          </tr>
+        </thead>
+        <tbody>
+          <% competition.games.sorted_games.each.with_index(1) do |game, index| %>
+            <%= render partial: 'ranking', locals: { index: index, game: game, competition: competition} %>
+          <% end %>
+        </tbody>
+      </table>
+  </div>    
+    <% end %>
+</div>

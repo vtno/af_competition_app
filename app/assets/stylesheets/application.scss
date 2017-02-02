@@ -20,9 +20,21 @@
 @import "competition";
 @import "game";
 @import "find";
+@import "slick";
+@import "slick-theme";
 
 body {
   font-size: 1rem;
+}
+
+.slick-slide {
+  height: 100vh !important;
+}
+
+#score-table {
+  th, td {
+    padding: 4px;
+  }
 }
 
 @media (max-width: 1000px){
