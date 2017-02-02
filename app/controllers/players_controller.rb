@@ -8,6 +8,9 @@ class PlayersController < ApplicationController
     @competition = Competition.find(params[:competition_id])
     @players = @competition.games.
                joins(:score).
+               order('scores.total_score').
+               order('scores.x_and_10_count').
+               order('scores.x_count').
                order('scores.ten_count').
                order('scores.nine_count').
                reverse
