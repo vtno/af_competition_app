@@ -68,7 +68,10 @@ $(document).on('turbolinks:load', function(){
     $revertParent.append($revertSpan);
   }
 
-  function setFlash(text){
+  window.setFlash = function setFlash(text){
+    $flash = $('.flash')
+    $flash.off()
+    $flash.remove()
     $flash = $("<div class='flash error'>"+ text + "</div>");
     $('body').prepend($flash);
     $flash.on('click', function(){

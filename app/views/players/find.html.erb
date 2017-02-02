@@ -1,21 +1,21 @@
 <div class="container">
-  <div class="col-md-6 offset-md-3">
+  <div class="col-xs-12">
     <div class="card pb-3">
       <h3 class="card-header text-center">ร่วมการแข่งขัน</h3>
       <%= form_tag '/search_players' do %>
         <div class="form-group text-center mt-3">
-          <%= label_tag :target_number, 'ใส่หมายเลขเป้า' %>
-          <%= text_field_tag :target_number, '' %>
+          <%= label_tag :target_number, 'ใส่หมายเลขเป้า', class: 'bg-inverse text-white input-label' %>
+          <%= text_field_tag :target_number, '', class: 'border-all', id: 'target-number'%>
         </div>
         <div class="form-group text-center mt-3">
           <%= label_tag :select_competition, 'เลือกการแข่งขันที่ต้องการ' %>
           <%= hidden_field_tag :competition_id, '', id: 'competition-id' %>
           <% @on_going_competitions.each do |compet| %>
-            <%=link_to compet.name, '', class: 'btn btn-secondary compet', data: { id: compet.id } %>
+            <%=link_to "#{compet.name} ระยะ #{compet.range} เมตร", '', class: 'btn btn-secondary compet', data: { id: compet.id } %>
           <% end %>
         </div>
         <div class="text-center">
-          <%= submit_tag 'เข้าร่วม', class: 'btn btn-primary' %>        
+          <%= submit_tag 'เข้าร่วม', class: 'btn btn-primary', id: 'join' %>        
         </div>
       <% end %>
     </div>

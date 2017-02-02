@@ -10,13 +10,13 @@
     </span>
   </td>
   <td class="player-score">
-    <%= select_tag 'score', options_for_select([0,1,2,3,4,5,6,7,8,9,10,'x'], game.score.send("score#{index}")[0]), class: 'select-score score1', data: { position: 0 } %>
+    <%= select_tag 'score', options_for_select(score_option(@competition), game.score.send("score#{index}")[0]), class: 'select-score score1', data: { position: 0 } %>
   </td>
   <td class="player-score">
-    <%= select_tag 'score', options_for_select([0,1,2,3,4,5,6,7,8,9,10,'x'], game.score.send("score#{index}")[1]), class: 'select-score score2', data: { position: 1 } %>
+    <%= select_tag 'score', options_for_select(score_option(@competition), game.score.send("score#{index}")[1]), class: 'select-score score2', data: { position: 1 } %>
   </td>
   <td class="player-score">
-    <%= select_tag 'score', options_for_select([0,1,2,3,4,5,6,7,8,9,10,'x'], game.score.send("score#{index}")[2]), class: 'select-score score3', data: { position: 2 } %>
+    <%= select_tag 'score', options_for_select(score_option(@competition), game.score.send("score#{index}")[2]), class: 'select-score score3', data: { position: 2 } %>
   </td>
   <td class="player-score total-score">
     <span>
