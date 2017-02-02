@@ -6,14 +6,21 @@ class PlayersController < ApplicationController
 
   def ranking
     @competition = Competition.find(params[:competition_id])
-    @players = @competition.games.
-               joins(:score).
-               order('scores.total_score').
-               order('scores.x_and_10_count').
-               order('scores.x_count').
-               order('scores.ten_count').
-               order('scores.nine_count').
-               reverse
+    @players = if @competition.range == 18
+                 @competition.games.
+                   joins(:score).
+                   order('scores.total_score').
+                   order('scores.ten_count').
+                   order('scores.nine_count').
+                   reverse
+               else
+                 @competition.games.
+                   joins(:score).
+                   order('scores.total_score').
+                   order('scores.x_and_10_count').
+                   order('scores.x_count').
+                   reverse
+               end
   end
 
   def search_players
