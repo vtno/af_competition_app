@@ -132,6 +132,8 @@ $(document).on('turbolinks:load', function(){
           } else {
             $cell.siblings('.count-x-10').text(response.row_x_and_10_count);
             $cell.siblings('.count-x').text(response.row_x_count);
+            $('.x10_count').text(response.x_and_ten_count);
+            $('.x_count').text(response.x_count);
           }
         }
     })

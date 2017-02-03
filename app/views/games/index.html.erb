@@ -1,11 +1,11 @@
 <div class="container mt-3">
   <div class="col-md-8 offset-md-2"></div>
   <h3><%= "#{@compet.name} ระยะ #{@compet.range} เมตร"%></h3>
-  <%= render 'qualification' if @compet.score_type == 'qualification' %>
-  <%= render 'final' unless @compet.score_type == 'qualification' %>
+  <%= render 'qualification' if @compet.score_type == 'qualification' ||@compet.score_type == 'qualification2' %>
+  <%= render 'final' unless @compet.score_type == 'qualification' ||@compet.score_type == 'qualification2'%>
   <%= link_to 'กลับ', competitions_path,  class: 'btn btn-primary' %>
   <%= link_to 'กลับหน้าแรก', new_competition_path,  class: 'btn btn-primary' %>
-  <% if @compet.score_type == 'qualification' %>
+  <% if @compet.score_type == 'qualification' || @compet.score_type == 'qualification2' %>
     <%= link_to 'ดูอันดับผู้แข่งขัน', competition_ranking_path,  class: 'btn btn-success' %>
   <% else %>
     <%= link_to 'ดูผลการแข่งกัน', competition_result_path, class: 'btn btn-success' %>

@@ -24,7 +24,7 @@
           <td><%= "#{game.target_number}#{game.target_slot}" %></td>
           </td>
           <td><%= game.score.total_score %></td>
-          <% if @compet.score_type == 'qualification' %>
+          <% if @compet.range == 18 %>
             <td>
               <%= game.score.ten_count %>
             </td>     

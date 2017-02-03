@@ -41,7 +41,7 @@
           <td class="total_points"><%= @score.total_points%></td>
         <% end %>
         <td class="total_score"><%= @score.total_score %></td>
-        <% if @competition.score_type == 'qualification' %>
+        <% if @competition.range == 18 %>
           <td class="ten_count"><%= @score.ten_count %></td>
           <td class="nine_count"><%= @score.nine_count %></td>
         <% else %>
