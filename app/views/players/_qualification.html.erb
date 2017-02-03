@@ -1,6 +1,6 @@
  <% competition.games.sorted_games.each_slice(10).with_index do |games, slice_index| %>
 <div>    
-  <h4 class="text-center">การแข่งขัน <%= competition.name %> ระยะ <%= competition.range %> เมตร</h4>
+  <h4 class="text-center"><%= render_compet_name(competition) %></h4>
   <table class="table table-striped" id="score-table">
     <thead class="table-inverse">
       <tr>

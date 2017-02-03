@@ -2,9 +2,6 @@
   <td><%= index %></td>
   <td><%= game.player_name%></td>
   <td><%= "#{game.target_number}#{game.target_slot}"%></td>
-  <% unless competition.score_type == 'qualification' %>
-    <td><%= game.score.total_points %></td>
-  <% end %>
   <td><%= game.score.total_score%></td>
   <% if competition.range == 18 %>
     <td><%= game.score.ten_count %></td>
