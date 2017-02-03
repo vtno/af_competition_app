@@ -19,5 +19,6 @@ Rails.application.routes.draw do
   get '/score_card' => 'players#score_card'
   get '/all_rankings' => 'players#all_rankings'
   post '/search_players' => 'players#search_players'
-  root 'competitions#new'
+  # root 'competitions#new'
+  root 'players#find'
 end
