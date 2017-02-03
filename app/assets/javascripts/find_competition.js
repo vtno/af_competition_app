@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).on('turbolinks:load', function(){
   $('#join').on('click', function(e){
     text = $('#target-number').val();
     if (text === '' || isNaN(parseInt(text)) || text.length > 2 ) {
