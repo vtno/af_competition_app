@@ -1,5 +1,5 @@
 <div class="container slider">
   <% @competitions.each do |competition| %>
-    <%= render partial: 'qualification', locals: { competition: competition } if competition.score_type == 'qualification'%>
+    <%= render partial: 'qualification', locals: { competition: competition } %>
   <% end %>
 </div>

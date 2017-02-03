@@ -9,17 +9,9 @@
         <li class="nav-item">
           <a class="nav-link active" data-toggle="tab" href="#qualification" role="tab" aria-controls="qualification">รอบเก็บคะแนน</a>
         </li>
+        
         <li class="nav-item">
-          <a class="nav-link" data-toggle="tab" href="#sixteen_final" role="tab" aria-controls="sixteen_final">รอบ 16 คน</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" data-toggle="tab" href="#quarter_final" role="tab" aria-controls="quarter_final">รอบ 8 คน</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" data-toggle="tab" href="#semi_final" role="tab" aria-controls="semi_final">รอบรองชนะเลิศ</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" data-toggle="tab" href="#final" role="tab" aria-controls="final">รอบชิงชนะเลิศ</a>
+          <a class="nav-link" data-toggle="tab" href="#qualification2" role="tab" aria-controls="final">รอบเก็บคะแนน 2</a>
         </li>
       </ul>
       <div class="tab-content">
@@ -29,30 +21,13 @@
             <%= render partial: 'new_competition_section', locals: { range: 50 , score_type: 'qualification' }%>            
           </table>
         </div>
-        <div class="tab-pane" id="sixteen_final" role="tabpanel">
-          <table class="table table-striped final">
-            <%= render partial: 'new_competition_section', locals: { range: 18 , score_type: 'sixteen_final' }%>
-            <%= render partial: 'new_competition_section', locals: { range: 50 , score_type: 'sixteen_final' }%>    
-          </table>
-        </div>              
-        <div class="tab-pane" id="quarter_final" role="tabpanel">
-          <table class="table table-striped final">
-            <%= render partial: 'new_competition_section', locals: { range: 18 , score_type: 'quarter_final' }%>
-            <%= render partial: 'new_competition_section', locals: { range: 50 , score_type: 'quarter_final' }%>    
+        <div class="tab-pane" id="qualification2" role="tabpanel">
+          <table class="table table-striped qualification">
+            <%= render partial: 'new_competition_section', locals: { range: 18 , score_type: 'qualification2' }%>
+            <%= render partial: 'new_competition_section', locals: { range: 50 , score_type: 'qualification2' }%>            
           </table>
         </div>
-        <div class="tab-pane" id="semi_final" role="tabpanel">
-          <table class="table table-striped final">
-            <%= render partial: 'new_competition_section', locals: { range: 18 , score_type: 'semi_final' }%>
-            <%= render partial: 'new_competition_section', locals: { range: 50 , score_type: 'semi_final' }%>    
-          </table>
-        </div>
-        <div class="tab-pane" id="final" role="tabpanel">
-          <table class="table table-striped final">
-            <%= render partial: 'new_competition_section', locals: { range: 18 , score_type: 'final' }%>
-            <%= render partial: 'new_competition_section', locals: { range: 50 , score_type: 'final' }%>    
-          </table>
-        </div>
+    
       </div>
       
     </div>

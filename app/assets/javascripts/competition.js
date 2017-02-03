@@ -26,33 +26,11 @@ $(document).on('turbolinks:load', function () {
     $('.qualification_50_body').slideToggle();
   });
 
-  $('.final_50').on('click', function () {
-    $('.final_50_body').slideToggle();
+  $('.qualification2_18').on('click', function () {
+    $('.qualification2_18_body').slideToggle();
   });
 
-  $('.final_18').on('click', function () {
-    $('.final_18_body').slideToggle();
-  });
-
-  $('.sixteen_final_50').on('click', function () {
-    $('.sixteen_final_50_body').slideToggle();
-  });
-
-  $('.sixteen_final_18').on('click', function () {
-    $('.sixteen_final_18_body').slideToggle();
-  });
-
-  $('.quarter_final_50').on('click', function () {
-    $('.quarter_final_50_body').slideToggle();
-  });
-  $('.quarter_final_18').on('click', function () {
-    $('.quarter_final_18_body').slideToggle();
-  });
-
-  $('.semi_final_50').on('click', function () {
-    $('.semi_final_50_body').slideToggle();
-  });
-  $('.semi_final_18').on('click', function () {
-    $('.semi_final_18_body').slideToggle();
+  $('.qualification2_50').on('click', function () {
+    $('.qualification2_50_body').slideToggle();
   });
 });
