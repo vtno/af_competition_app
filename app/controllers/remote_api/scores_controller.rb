@@ -2,7 +2,6 @@
 module RemoteApi
   class ScoresController < ApplicationController
     def update
-      binding.pry
       game = Game.find(params[:game_id])
       compet = Competition.find(params[:competition_id])
       score = game.score
