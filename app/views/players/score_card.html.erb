@@ -35,7 +35,7 @@
     <% (1..determine_round(@competition)).each do |index| %>
       <%= render partial: 'round_button', locals: { index: index }%>
     <% end %>
-    <% if @competition.score_type == 'qualification '%>
+    <% if @competition.score_type == 'qualification' %>
       <%= link_to 'ดูผลคะแนน', competition_ranking_path(@competition), class: 'btn btn-success btn-block', style: 'margin-top: 5rem;' %>
     <% else %>
       <%= link_to 'ดูผลการแข่งขัน', competition_result_path(@competition), class: 'btn btn-success btn-block', style: 'margin-top: 5rem;' %>
