@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 module ScoresHelper
   def determine_round(competition)
-    if competition.score_type == 'qualification'
+    if competition.score_type == 'qualification' || competition.score_type == 'qualification2'
       return 10 if competition.range == 18
       12
     else
