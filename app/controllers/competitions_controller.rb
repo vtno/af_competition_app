@@ -5,6 +5,11 @@ class CompetitionsController < ApplicationController
     @compet = Competition.new
   end
 
+  def update
+    compet = Competition.find params[:id]
+    compet.update(competition_params)
+  end
+
   def create
     compet = Competition.new(competition_params)
     compet.status = 'started'
@@ -33,6 +38,6 @@ class CompetitionsController < ApplicationController
   end
 
   private def competition_params
-    params.require(:competition).permit(:name, :score_type, :range)
+    params.require(:competition).permit(:name, :score_type, :range, :hidden)
   end
 end

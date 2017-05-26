@@ -10,18 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170202215547) do
+ActiveRecord::Schema.define(version: 20170526150522) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "competitions", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.integer  "status"
     t.string   "score_type"
     t.integer  "range"
+    t.boolean  "hidden",     default: false
   end
 
   create_table "games", force: :cascade do |t|
