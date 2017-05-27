@@ -15,6 +15,10 @@ class Competition < ApplicationRecord
   has_many :games, dependent: :destroy
   enum status: %w(started finished)
 
+  def ten_set?
+    range == 18 || range == 10
+  end
+
   def date
     created_at.strftime('%d-%m-%Y %H:%M')
   end

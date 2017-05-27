@@ -9,12 +9,21 @@
         <li class="nav-item">
           <a class="nav-link active" data-toggle="tab" href="#qualification" role="tab" aria-controls="qualification">รอบเก็บคะแนน</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#qualification2" role="tab" aria-controls="final">รอบเก็บคะแนน 2</a>
+        </li>
       </ul>
       <div class="tab-content">
         <div class="tab-pane active" id="qualification" role="tabpanel">
           <table class="table table-striped qualification">
             <%= render partial: 'new_competition_section', locals: { range: 10 , score_type: 'qualification' }%>
             <%= render partial: 'new_competition_section', locals: { range: 18 , score_type: 'qualification' }%>            
+          </table>
+        </div>
+        <div class="tab-pane" id="qualification2" role="tabpanel">
+          <table class="table table-striped qualification">
+            <%= render partial: 'new_competition_section', locals: { range: 10 , score_type: 'qualification2' }%>
+            <%= render partial: 'new_competition_section', locals: { range: 18 , score_type: 'qualification2' }%>            
           </table>
         </div>
       </div>

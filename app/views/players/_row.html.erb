@@ -38,7 +38,7 @@
       <%= Score.calc game.score.send("score#{index}")%>
     </span>
   </td>
-  <% if competition.range == 18 %>
+  <% if competition.ten_set? %>
     <td class="player-score count-10">
       <span><%= Score.count_score(game.score.send("score#{index}"), 10)%></span>
     </td>

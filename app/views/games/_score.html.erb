@@ -23,7 +23,7 @@
   <td class="score total-score">
     <span><%= Score.calc(score)%></span>
   </td>
-  <% if @competition.range == 18 %>
+  <% if @competition.ten_set? %>
     <td class=" score count-10">
       <span><%= Score.count_score(score, 10)%></span>
     </td>
