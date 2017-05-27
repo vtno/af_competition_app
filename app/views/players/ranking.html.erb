@@ -5,7 +5,7 @@
       <th>อันดับ</th>
       <th>ชื่อ</th>
       <th>คะแนนรวม</th>
-      <% if @competition.range == 18 %>
+      <% if @competition.ten_set? %>
         <th>10</th>
         <th>9</th>
       <% else %>
@@ -22,7 +22,7 @@
         <td><%= index %></td>
         <td><%= player.player_name %></td>
         <td><%= player.score.total_score %></td>
-        <% if @competition.range == 18%>
+        <% if @competition.ten_set?%>
           <td><%= player.score.ten_count %></td>
           <td><%= player.score.nine_count %></td>
         <% else %>

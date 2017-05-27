@@ -124,7 +124,7 @@ $(document).on('turbolinks:load', function(){
             $cell.find('span').text(response.updated_score);
           }
           $cell.siblings('.total-score').text(response.row_sum_score);
-          if(response.range === 18) {
+          if(response.range === 18 || response.range == 10) {
             $cell.siblings('.count-10').text(response.row_10_count);
             $cell.siblings('.count-9').text(response.row_9_count);
             $('.ten_count').text(response.ten_count);

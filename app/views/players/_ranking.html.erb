@@ -3,7 +3,7 @@
   <td><%= game.player_name%></td>
   <td><%= "#{game.target_number}#{game.target_slot}"%></td>
   <td><%= game.score.total_score%></td>
-  <% if competition.range == 18 %>
+  <% if competition.ten_set? %>
     <td><%= game.score.ten_count %></td>
     <td><%= game.score.nine_count %></td>
   <% else %>
