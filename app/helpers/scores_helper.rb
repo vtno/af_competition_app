@@ -15,7 +15,7 @@ module ScoresHelper
   end
 
   def determine_players_amount(competition)
-    return 20 if competition.score_type == 'qualification' || competition.score_type == 'qualification2'
+    return 40 if competition.score_type == 'qualification' || competition.score_type == 'qualification2'
     return 16 if competition.score_type == 'sixteen_final'
     return 8 if competition.score_type == 'quarter_final'
     return 4 if competition.score_type == 'semi_final'
