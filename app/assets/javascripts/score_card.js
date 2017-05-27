@@ -43,9 +43,10 @@ $(document).on('turbolinks:load', function(){
           competition_id: compet_id 
         },   
         success: function(response){
+          console.log(response)
           $(e.target).parents().siblings('.total-score').text(response.row_sum_score)
           $(e.target).parents().siblings('.total-score').text(response.row_sum_score)
-          if(response.range === 18) {
+          if(response.range === 18 || response.range == 10) {
             $(e.target).parents().siblings('.count-10').text(response.row_10_count);
             $(e.target).parents().siblings('.count-9').text(response.row_9_count);
           } else {

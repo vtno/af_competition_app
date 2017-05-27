@@ -18,12 +18,20 @@ $(document).on('turbolinks:load', function () {
     $(this).tab('show');
   })
 
+  $('.qualification_10').on('click', function () {
+    $('.qualification_10_body').slideToggle();
+  });
+
   $('.qualification_18').on('click', function () {
     $('.qualification_18_body').slideToggle();
   });
 
   $('.qualification_50').on('click', function () {
     $('.qualification_50_body').slideToggle();
+  });
+
+  $('.qualification2_10').on('click', function () {
+    $('.qualification2_10_body').slideToggle();
   });
 
   $('.qualification2_18').on('click', function () {

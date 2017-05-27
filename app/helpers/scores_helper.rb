@@ -2,7 +2,7 @@
 module ScoresHelper
   def determine_round(competition)
     if competition.score_type == 'qualification' || competition.score_type == 'qualification2'
-      return 10 if competition.range == 18
+      return 10 if competition.ten_set? 
       12
     else
       5
@@ -23,7 +23,7 @@ module ScoresHelper
   end
 
   def score_option(competition)
-    return [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10] if competition.range == 18
+    return [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10] if competition.ten_set? 
     [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 'x']
   end
 
@@ -34,7 +34,7 @@ module ScoresHelper
   def check_winner(pair, range)
     return pair[0] if pair[0].score.total_points > pair[1].score.total_points
     return pair[1] if pair[1].score.total_points > pair[0].score.total_points
-    if range == 18
+    if range == 18 || range == 10
       return pair[0] if pair[0].score.ten_count > pair[1].score.ten_count
       return pair[0] if pair[0].score.nine_count > pair[1].score.nine_count
       return pair[1] if pair[1].score.ten_count > pair[0].score.ten_count

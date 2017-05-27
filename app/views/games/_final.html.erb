@@ -6,7 +6,7 @@
       <th>หมายเลขเป้า</th>    
       <th>คะแนนรวม</th>
       <th>แต้ม</th>
-      <% if @compet.range == 18%>
+      <% if @compet.ten_set? %>
         <th>10</th>
         <th>9</th>
       <% else %>
@@ -24,7 +24,7 @@
         <td><%= target_id(game) %></td>
         <td><%= game.score.total_score %></td>
         <td><%= game.score.total_points %></td>
-        <% if @compet.range == 18 %>
+        <% if @compet.ten_set? %>
           <td><%= game.score.ten_count %></td>
           <td><%= game.score.nine_count %></td>
         <% else %>
