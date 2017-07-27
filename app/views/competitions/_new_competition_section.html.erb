@@ -13,6 +13,9 @@
       <%=  render partial: 'competition_type', locals: { range: range, score_type: score_type, number: '4', compet_level: 'Open', bow_type: 'Compound' }%>
     <% elsif range == 10 %>
       <%=  render partial: 'competition_type', locals: { range: range, score_type: score_type, number: '1', compet_level: 'U12', bow_type: 'Recurve' }%>
+    <% else %>
+      <%= render partial: 'competition_type', locals: { range: range, score_type: score_type, number: '1', compet_level: 'Open', bow_type: 'Recurve' } %>
+      <%= render partial: 'competition_type', locals: { range: range, score_type: score_type, number: '2', compet_level: 'Open', bow_type: 'Barebow' } %>
+      <%= render partial: 'competition_type', locals: { range: range, score_type: score_type, number: '3', compet_level: 'Open', bow_type: 'Compound'} %>
     <% end %>
   </tbody>
-

@@ -7,7 +7,6 @@ class DuelsController < ApplicationController
   end
 
   def create
-    competition = 
     duel_score = Score.new(score_params)
   end
 

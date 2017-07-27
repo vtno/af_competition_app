@@ -106,7 +106,7 @@ class Score < ApplicationRecord
   end
 
   def cal_total_points
-    self.total_points = points.inject(0){|sum,x| sum + x }
+    self.total_points = points.inject(0) { |sum, x| sum + x }
     save!
   end
 end

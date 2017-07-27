@@ -30,6 +30,10 @@ $(document).on('turbolinks:load', function () {
     $('.qualification_50_body').slideToggle();
   });
 
+  $('.qualification_30').on('click', function () {
+    $('.qualification_30_body').slideToggle();
+  });
+
   $('.qualification2_10').on('click', function () {
     $('.qualification2_10_body').slideToggle();
   });
@@ -38,7 +42,7 @@ $(document).on('turbolinks:load', function () {
     $('.qualification2_18_body').slideToggle();
   });
 
-  $('.qualification2_50').on('click', function () {
-    $('.qualification2_50_body').slideToggle();
+  $('.qualification2_30').on('click', function () {
+    $('.qualification2_30_body').slideToggle();
   });
 });
