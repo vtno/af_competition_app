@@ -2,7 +2,7 @@
 module ScoresHelper
   def determine_round(competition)
     if competition.score_type == 'qualification' || competition.score_type == 'qualification2'
-      return 10 if competition.ten_set? 
+      return 10 if competition.ten_set?
       12
     else
       5
@@ -23,8 +23,9 @@ module ScoresHelper
   end
 
   def score_option(competition)
-    return [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10] if competition.ten_set? 
-    [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 'x']
+    arr = *(1..10)
+    arr << 'x' unless competition.ten_set?
+    arr.reverse
   end
 
   def target_id(game)
