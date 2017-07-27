@@ -13,12 +13,13 @@
  *= require_tree .
  *= require_self
  */
- 
+
 @import "bootstrap";
 @import "register_player";
 @import "score";
 @import "competition";
 @import "game";
+@import "ranking";
 @import "find";
 @import "slick";
 @import "slick-theme";
@@ -38,7 +39,7 @@ body {
 }
 
 @media (max-width: 1000px){
-  .container { 
+  .container {
     width: 100%;
   }
 
@@ -52,18 +53,18 @@ body {
     h2 {
       font-size: 4rem;
       margin-bottom: 2rem;
-    }   
+    }
     h3 {
       font-size: 3.5rem;
     }
     h4  {
       font-size: 3rem;
       margin-bottom: 2rem;
-    }  
+    }
     .btn {
       font-size: 2.5rem;
       padding: 1rem 1.5rem;
-    }   
+    }
   }
 }
 .flash {

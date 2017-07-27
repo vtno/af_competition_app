@@ -1,8 +1,8 @@
  <% competition.games.sorted_games.each_slice(10).with_index do |games, slice_index| %>
-<div>    
+<div>
   <h4 class="text-center"><%= render_compet_name(competition) %></h4>
   <table class="table table-striped" id="score-table">
-    <thead class="table-inverse">
+    <thead class="table-inverse table-<%= competition.range%>">
       <tr>
         <th>อันดับ</th>
         <th>ชื่อ</th>
