@@ -15,6 +15,8 @@ class Competition < ApplicationRecord
   has_many :games, dependent: :destroy
   enum status: %w(started finished)
 
+  scope :show_rank, -> { where(show_rank: true) }
+
   def ten_set?
     range == 18 || range == 10
   end

@@ -1,6 +1,8 @@
 <div class="container mt-3">
   <div class="col-md-8 offset-md-2"></div>
   <h3><%= "#{@compet.name} ระยะ #{@compet.range} เมตร"%></h3>
+  <%= render_checkbox %>
+  <%= label_tag :show_score, 'โชว์ใน score board', id: 'show-score', data: { id: @compet.id } %>
   <%= render 'qualification' if @compet.score_type == 'qualification' ||@compet.score_type == 'qualification2' %>
   <%= render 'final' unless @compet.score_type == 'qualification' ||@compet.score_type == 'qualification2'%>
   <%= link_to 'กลับ', competitions_path,  class: 'btn btn-primary' %>

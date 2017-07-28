@@ -11,7 +11,7 @@ class PlayersController < ApplicationController
 
   def ranking
     @competition = Competition.find(params[:competition_id])
-    @players = if @competition.ten_set? 
+    @players = if @competition.ten_set?
                  @competition.games.
                    joins(:score).
                    order('scores.total_score').
@@ -29,7 +29,7 @@ class PlayersController < ApplicationController
   end
 
   def all_rankings
-    @competitions = Competition.all
+    @competitions = Competition.show_rank
   end
 
   def search_players

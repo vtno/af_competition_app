@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170526150522) do
+ActiveRecord::Schema.define(version: 20170727081531) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20170526150522) do
     t.string   "score_type"
     t.integer  "range"
     t.boolean  "hidden",     default: false
+    t.boolean  "show_rank",  default: true
   end
 
   create_table "games", force: :cascade do |t|

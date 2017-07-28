@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 Rails.application.routes.draw do
   namespace :remote_api, defaults: { format: 'json' } do
+    resources :competitions
     resources :games do
       resource :score, only: [:update, :player_update]
     end
