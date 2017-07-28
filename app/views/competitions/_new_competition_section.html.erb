@@ -2,20 +2,22 @@
     <tr>
       <th><%= range %>&nbsp;เมตร</th>
       <th>ประเภทการแข่งขัน</th>
+      <th>สีการแข่งขัน</th>
       <th>Action</th>
     </tr>
   </thead>
   <tbody class='<%= "#{score_type}_#{range}_body" %>'>
-    <% if range == 18 %>
-      <%=  render partial: 'competition_type', locals: { range: range, score_type: score_type, number: '1', compet_level: 'U12', bow_type: 'Recurve' }%>
-      <%=  render partial: 'competition_type', locals: { range: range, score_type: score_type, number: '2', compet_level: 'Open', bow_type: 'Recurve' }%>
-      <%=  render partial: 'competition_type', locals: { range: range, score_type: score_type, number: '3', compet_level: 'Open', bow_type: 'Barebow' }%>
-      <%=  render partial: 'competition_type', locals: { range: range, score_type: score_type, number: '4', compet_level: 'Open', bow_type: 'Compound' }%>
-    <% elsif range == 10 %>
-      <%=  render partial: 'competition_type', locals: { range: range, score_type: score_type, number: '1', compet_level: 'U12', bow_type: 'Recurve' }%>
+
+    <% if range == 10 %>
+      <%=  render partial: 'competition_type', locals: { color: generate_color(0), range: range, score_type: score_type, number: '1', compet_level: 'U12', bow_type: 'Recurve' }%>
+    <% elsif range == 18 %>
+      <%=  render partial: 'competition_type', locals: { color: generate_color(1), range: range, score_type: score_type, number: '1', compet_level: 'U12', bow_type: 'Recurve' }%>
+      <%=  render partial: 'competition_type', locals: { color: generate_color(2), range: range, score_type: score_type, number: '2', compet_level: 'Open', bow_type: 'Recurve' }%>
+      <%=  render partial: 'competition_type', locals: { color: generate_color(3), range: range, score_type: score_type, number: '3', compet_level: 'Open', bow_type: 'Barebow' }%>
+      <%=  render partial: 'competition_type', locals: { color: generate_color(4), range: range, score_type: score_type, number: '4', compet_level: 'Open', bow_type: 'Compound' }%>
     <% else %>
-      <%= render partial: 'competition_type', locals: { range: range, score_type: score_type, number: '1', compet_level: 'Open', bow_type: 'Recurve' } %>
-      <%= render partial: 'competition_type', locals: { range: range, score_type: score_type, number: '2', compet_level: 'Open', bow_type: 'Barebow' } %>
-      <%= render partial: 'competition_type', locals: { range: range, score_type: score_type, number: '3', compet_level: 'Open', bow_type: 'Compound'} %>
+      <%= render partial: 'competition_type', locals: { color: generate_color(5), range: range, score_type: score_type, number: '1', compet_level: 'Open', bow_type: 'Recurve' } %>
+      <%= render partial: 'competition_type', locals: { color: generate_color(6), range: range, score_type: score_type, number: '2', compet_level: 'Open', bow_type: 'Barebow' } %>
+      <%= render partial: 'competition_type', locals: { color: generate_color(7), range: range, score_type: score_type, number: '3', compet_level: 'Open', bow_type: 'Compound'} %>
     <% end %>
   </tbody>

@@ -1,5 +1,5 @@
 <div class="container slider">
-  <% @competitions.each.with_index do |competition, index| %>
-    <%= render partial: 'qualification', locals: { competition: competition, color_index: index } %>
+  <% @competitions.each do |competition| %>
+    <%= render partial: 'qualification', locals: { competition: competition } %>
   <% end %>
 </div>
